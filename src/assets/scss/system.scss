@@ -1,0 +1,54 @@
+@use "sass:math";
+
+$breakpoint: 767;
+$contSpaceValue: 30;
+$innerContWidthValue: 1200;
+$contWidthValue: $innerContWidthValue + $contSpaceValue * 2;
+$contWidth: $contWidthValue + px;
+
+// Color
+// -------------------------------------------------------------------
+$themeColor: #f0f2f0;
+$baseColor: #FFFFFF;
+$textDefaultColor: #090905;
+$orangeColor:#f39c12;
+$grayColor:#474e51;
+$borderColor:#d4d7d3;
+$lightBlueColor:#DCF4F8;
+$darkBlueColor:rgba(215, 233, 236, 0.95);
+
+// responsive system
+// ---------------------
+// MediaQuaries
+// -------------------------------------------------------------------
+
+$breakpoints: (
+	"xss": "(max-width: 350px)",
+	"xs": "(max-width: 398px)",
+	"sm": "(max-width: 575px)",
+	"md": "(max-width: 767px)",
+	"lg": "(max-width: 1100px)",
+	"xl": "(max-width: 1200px)",
+	"xll": "(max-width: 1399px)",
+
+  "cont": "(min-width: 768px)"
+);
+
+@mixin MQ($breakpoint: md) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+	  @content;
+	}
+}
+
+// Layouts
+// -------------------------------------------------------------------
+@mixin contentCentering(){
+  max-width: $contWidth;
+  padding-right: $contSpaceValue + px;
+  padding-left: $contSpaceValue + px;
+  margin-right: auto;
+  margin-left: auto;
+  @include MQ(md) {
+    max-width: 100%;
+  }
+}

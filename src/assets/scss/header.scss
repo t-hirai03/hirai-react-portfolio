@@ -1,10 +1,12 @@
-.App {
+@use "system.scss" as *;
+
+.header {
   text-align: center;
   &-logo {
     height: 40vmin;
     pointer-events: none;
   }
-  &-header {
+  &-contents {
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
