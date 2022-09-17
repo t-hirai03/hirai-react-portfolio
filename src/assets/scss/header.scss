@@ -1,24 +1,36 @@
 @use "system.scss" as *;
 
 .header {
-  position: fixed;
-  z-index: 150;
-  top: 0;
-  right: 0;
-  left: 0;
 
-  width: 100%;
-  height: 70px;
-  border-bottom: solid 1px $borderColor;
-  background-color: $baseColor;
-  opacity: 0.95;
-  transition: all .4s ease-in;
-  // position: relative;
-  // top: 0;
-  // z-index: 150;
+  &-bar {
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: 0;
+    left: 0;
 
-  @include MQ(md) {
-    height: 60px;
+    width: 100%;
+    height: 70px;
+    background-color: $baseColor;
+    opacity: 0.95;
+    transition: all .4s ease-in;
+
+    @include MQ(cont) {
+      border-bottom: solid 1px $borderColor;
+    }
+
+    @include MQ(md) {
+      height: 0px;
+      top: -60px;
+    }
+  }
+
+  &-bar_active {
+    @include MQ(md) {
+      height: 60px;
+      top: 0;
+      border-bottom: solid 1px $borderColor;
+    }
   }
 
   &-inner {
@@ -173,11 +185,14 @@
 
   &-overlay {
     width: 100%;
-    height: 100%;
     text-align: center;
     position: fixed;
     z-index: 110;
     background: rgba(0, 0, 0, 0.49);
+  }
+
+  &-overlay_active {
+    height: 100%;
   }
 
   &-hide {
