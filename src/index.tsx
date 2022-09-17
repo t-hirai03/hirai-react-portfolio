@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './assets/css/index.css';
+import HeaderSection from './components/header';
+import Top from './components/top';
 import reportWebVitals from './reportWebVitals';
+import 'ress';
+import 'sanitize.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    {/* ヘッダー */}
+    <HeaderSection />
+    {/* コンテンツ */}
+    <Top />
   </React.StrictMode>
 );
 
