@@ -1,37 +1,241 @@
 @use "system.scss" as *;
 
 .header {
-  text-align: center;
-  &-logo {
-    height: 40vmin;
-    pointer-events: none;
+  position: fixed;
+  z-index: 150;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+  border-bottom: solid 1px $borderColor;
+  background-color: $baseColor;
+  opacity: 0.95;
+  transition: all .4s ease-in;
+  // position: relative;
+  // top: 0;
+  // z-index: 150;
+
+  @include MQ(md) {
+    height: 60px;
   }
-  &-contents {
-    background-color: #282c34;
-    min-height: 100vh;
+
+  &-inner {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &-date {
+    height: 70px;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    top: 0;
+    right: 84px;
+    padding-left: 12px;
+    position: static;
+
+    @include MQ(md) {
+      height: 60px;
+    }
   }
-  &-link {
-    color: #61dafb;
+
+  &-year {
+    font-size: 25px;
+  }
+
+  &-month_day {
+    font-size: 48px;
+    margin-left: 6px;
+
+    @include MQ(md) {
+      font-size: 25px;
+    }
+  }
+
+  &-hamburgerMenu {
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    z-index: 10001;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: #425052;
+    background-size: auto 100%;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+
+    @include MQ(md) {
+      width: 60px;
+      height: 60px;
+    }
+
+    &:before {
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: all .4s ease-in-out;
+      content: '';
+      top: 26px;
+      right: 23px;
+
+      @include MQ(md) {
+        top: 20px;
+        right: 18px;
+      }
+    }
+
+    span {
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: all .4s ease-in-out;
+      top: 34px;
+      right: 23px;
+
+      @include MQ(md) {
+        top: 28px;
+        right: 18px;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      transition: all .4s ease-in-out;
+      content: '';
+      top: 42px;
+      right: 23px;
+
+      @include MQ(md) {
+        top: 36px;
+        right: 18px;
+      }
+    }
+  }
+
+  &-nav {
+    position: absolute;
+    z-index: 140;
+    top: -1000px;
+    left: 0;
+    width: 100%;
+    transition: all .4s ease-in-out;
+    overflow: auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  &-navMenu {
+    background: rgba(215, 233, 236, 0.95);
+    padding: 15px 0 40px;
+  }
+
+  &-navMenu-list {
+    width: 415px;
+    margin: 0 auto;
+
+    @include MQ(md) {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+    }
+
+    a {
+      height: 70px;
+      display: block;
+      border-bottom: 1px dotted #7F7F7F;
+      background-size: 100% auto;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: opacity .3s ease-in;
+      text-decoration: none;
+      position: relative;
+
+      &:hover {
+        opacity: 0.75;
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: fixed;
+    z-index: 110;
+    background: rgba(0, 0, 0, 0.49);
+  }
+
+  &-hide {
+    top: -70px;
+  }
+
+  &-hamburgerMenu_active {
+    &:before {
+      top: 33px;
+      right: 21px;
+      width: 27px;
+      transform: rotate(-135deg);
+
+      @include MQ(md) {
+        top: 28px;
+        right: 15px;
+        width: 27px;
+      }
+    }
+
+    span {
+      opacity: 0;
+    }
+
+    &:after {
+      top: 33px;
+      right: 21px;
+      width: 27px;
+      transform: rotate(135deg);
+
+      @include MQ(md) {
+        top: 28px;
+        right: 15px;
+        width: 27px;
+      }
+    }
+  }
+
+  &-navMenu_active {
+    top: 70px;
+
+    @include MQ(md) {
+      top: 60px;
+    }
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }

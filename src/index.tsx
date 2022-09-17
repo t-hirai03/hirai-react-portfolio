@@ -4,6 +4,8 @@ import './assets/css/index.css';
 import HeaderSection from './components/header';
 import Top from './components/top';
 import reportWebVitals from './reportWebVitals';
+import 'ress';
+import 'sanitize.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
