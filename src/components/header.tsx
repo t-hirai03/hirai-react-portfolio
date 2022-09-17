@@ -52,7 +52,7 @@ function header() {
             </li>
           </ul>
         </div>
-        <div id="overlay" className="header-overlay"></div>
+        <div id="overlay" className="header-overlay" onClick={expandMenu}></div>
       </nav>
     </header>
   );
