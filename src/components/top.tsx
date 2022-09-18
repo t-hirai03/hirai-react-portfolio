@@ -2,7 +2,7 @@ import React from "react";
 import dogIcon from "../assets/image/top/dog_icon.png";
 import scrollDownIcon from "../assets/image/top/scroll_down.svg";
 import hiraiFaceImage from "../assets/image/top/face.jpg";
-import gitHubLogo from "../assets/image/top/github_logo.svg";
+// import gitHubLogo from "../assets/image/top/github_logo.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import "../assets/scss/top.scss";
