@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/css/index.css';
+import './assets/scss/index.scss';
 import HeaderSection from './components/header';
 import Top from './components/top';
 import FooterSection from './components/footer';

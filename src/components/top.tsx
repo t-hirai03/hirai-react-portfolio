@@ -2,7 +2,7 @@ import React from "react";
 import dogIcon from "../assets/image/top/dog_icon.png";
 import scrollDownIcon from "../assets/image/top/scroll_down.svg";
 import hiraiFaceImage from "../assets/image/top/face.jpg";
-// import gitHubLogo from "../assets/image/top/github_logo.svg";
+import gitHubLogo from "../assets/image/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import "../assets/scss/top.scss";
@@ -52,17 +52,14 @@ function top() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img
-                      src="../assets/image/top/github_logo.svg"
-                      alt="gitHub logo"
-                    />
+                    <img src={gitHubLogo} alt="gitHub logo" />
                   </a>
                 </p>
               </div>
               <p className="top-about_text">
                 はじめまして。平井と申します。
                 <br />
-                福井のSIerに入社後、常駐先でSESとして仕様書設計から製造/テスト、リリースまでウォーターフォール型のシステム開発を学び、
+                福井のSIerに入社後、常駐先でSESとして仕様書設計からコーディング/テスト、リリースまでウォーターフォール型のシステム開発を学び、
                 Javaを中心に福井県の宇宙産業のシステム開発に携わりました。
                 <br />
                 3年勤めたのち、現在は、Web制作会社でフロントエンドエンジニアとして従事しています。
