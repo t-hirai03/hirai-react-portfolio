@@ -10,6 +10,9 @@ function footer() {
            <i className="material-icons">keyboard_arrow_up</i>
         </a>
       </div>
+      <div className="ly_inner footer-copyRight">
+        <p>© 2022 Takahiro hirai</p>
+      </div>
     </footer>
   );
 }
