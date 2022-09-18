@@ -48,6 +48,7 @@ $breakpoints: (
   padding-left: $contSpaceValue + px;
   margin-right: auto;
   margin-left: auto;
+  width: 100%;
   @include MQ(md) {
     max-width: 100%;
   }

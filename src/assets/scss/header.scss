@@ -134,7 +134,8 @@
   }
 
   &-nav {
-    position: absolute;
+    // position: absolute;
+    position: fixed;
     z-index: 140;
     top: -1000px;
     left: 0;

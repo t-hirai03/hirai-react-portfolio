@@ -153,6 +153,105 @@
       margin-top: -17px;
     }
   }
+
+  &-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-contents_title {
+    text-align: center;
+    font-size: 3.56rem;
+    line-height: 110%;
+    margin: 1.78rem 0 1.424rem 0;
+    color: #424242;
+    font-weight: 400;
+    font-family: 'Capriola', "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+
+    @include MQ(md) {
+      font-size: 2rem;
+    }
+  }
+
+  // about
+  &-about {
+    @include MQ(cont) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &-about_image {
+    text-align: center;
+
+    @include MQ(cont) {
+      margin-right: 3rem;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      box-shadow: -1.875rem 1.875rem 0 $darkBlueColor;
+    }
+  }
+
+  &-about_item {
+    width: 50%;
+    padding: 1rem;
+    background-color: $themeColor;
+
+    @include MQ(md) {
+      margin-top: 50px;
+      width: 100%;
+    }
+  }
+
+  &-about_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  &-about_dl {
+    display: flex;
+    margin-bottom: 0.3rem;
+
+    dt {
+      font-weight: normal;
+      min-width: 90px;
+    }
+  }
+
+  // chart
+  &-chart {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include MQ(cont) {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &_contents {
+      @include MQ(cont) {
+        width: 33.3333%;
+      }
+    }
+  }
+
+  &-skill_text {
+    margin-bottom: 15px;
+    line-height: 2rem;
+  }
 }
 
 @-webkit-keyframes bgroop {
