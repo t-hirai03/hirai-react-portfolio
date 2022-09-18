@@ -1,7 +1,7 @@
 @use "sass:math";
 
 $breakpoint: 767;
-$contSpaceValue: 30;
+$contSpaceValue: 25;
 $innerContWidthValue: 1200;
 $contWidthValue: $innerContWidthValue + $contSpaceValue * 2;
 $contWidth: $contWidthValue + px;
@@ -16,6 +16,7 @@ $grayColor:#474e51;
 $borderColor:#d4d7d3;
 $lightBlueColor:#DCF4F8;
 $darkBlueColor:rgba(215, 233, 236, 0.95);
+$aiColor:#004C71;
 
 // responsive system
 // ---------------------
@@ -48,6 +49,7 @@ $breakpoints: (
   padding-left: $contSpaceValue + px;
   margin-right: auto;
   margin-left: auto;
+  width: 100%;
   @include MQ(md) {
     max-width: 100%;
   }

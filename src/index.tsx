@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/css/index.css';
+import './assets/scss/index.scss';
 import HeaderSection from './components/header';
 import Top from './components/top';
+import FooterSection from './components/footer';
 import reportWebVitals from './reportWebVitals';
 import 'ress';
 import 'sanitize.css';
@@ -16,6 +17,8 @@ root.render(
     <HeaderSection />
     {/* コンテンツ */}
     <Top />
+    {/* フッター */}
+    <FooterSection />
   </React.StrictMode>
 );
 
