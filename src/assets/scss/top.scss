@@ -200,6 +200,11 @@
     }
   }
 
+  &-about_text {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   &-about_item {
     width: 50%;
     padding: 1rem;
@@ -243,7 +248,7 @@
 
     &_contents {
       @include MQ(cont) {
-        width: 33.3333%;
+        width: 38%;
       }
     }
   }
@@ -251,6 +256,14 @@
   &-skill_text {
     margin-bottom: 15px;
     line-height: 2rem;
+  }
+
+  &-contact {
+    max-width: 785px;
+    margin: 0 auto;
+    p {
+      margin-bottom: 15px;
+    }
   }
 }
 

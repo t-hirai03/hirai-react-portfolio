@@ -4,6 +4,7 @@ import scrollDownIcon from "../assets/image/top/scroll_down.svg";
 import hiraiFaceImage from "../assets/image/top/face.jpg";
 import gitHubLogo from "../assets/image/top/github_logo.svg";
 import Charts from "../components/chart";
+import Contact from "../components/contact";
 import "../assets/scss/top.scss";
 
 function top() {
@@ -58,6 +59,15 @@ function top() {
                   </a>
                 </p>
               </div>
+              <p className="top-about_text">
+                はじめまして。平井と申します。
+                <br />
+                福井のSIerに入社後、常駐先でSESとして仕様書設計から製造/テスト、リリースまでウォーターフォール型のシステム開発を学び、
+                Javaを中心に福井県の宇宙産業のシステム開発に携わりました。
+                <br />
+                3年勤めたのち、現在は、Web制作会社でフロントエンドエンジニアとして従事しています。
+                Web制作を通じて、誰かの役に立ちたいと思っています。
+              </p>
               <dl className="top-about_dl">
                 <dt>生年月日：</dt>
                 <dd>1995年9月23日</dd>
@@ -135,8 +145,21 @@ function top() {
             <p className="top-skill_text">
               チャートの見方としては「1: 軽く使用した程度」、「2:
               実務で数ヶ月以上使用しているがもう少し習熟が必要」、「3:
-              実務レベルで自由に駆使できる」。という感じです。
+              実務レベルで自由に駆使できる」という感じです。
             </p>
+          </div>
+        </div>
+      </section>
+      <section className="top-section">
+        <div className="ly_inner">
+          <h2 className="top-contents_title">Contact me</h2>
+          <div className="top-contact">
+            <p>
+              最後までご覧いただきありがとうございました。
+              このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。
+              もしこのサイトや私について何かコメントがありましたら、下記フォームをご利用ください。
+            </p>
+            <Contact />
           </div>
         </div>
       </section>

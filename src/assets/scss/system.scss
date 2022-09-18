@@ -1,7 +1,7 @@
 @use "sass:math";
 
 $breakpoint: 767;
-$contSpaceValue: 30;
+$contSpaceValue: 25;
 $innerContWidthValue: 1200;
 $contWidthValue: $innerContWidthValue + $contSpaceValue * 2;
 $contWidth: $contWidthValue + px;
