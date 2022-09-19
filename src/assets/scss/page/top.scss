@@ -15,30 +15,26 @@
 
   &-mv_cloud01 {
     background: url(../../image/page/top/bg_cloud_01.png);
-    animation: cloud01 25s linear infinite;
-    -webkit-animation: cloud01 25s linear infinite;
     width: 100%;
-    height: 600px;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     background-position: 0 0;
-    -webkit-animation: bgroop 20s linear infinite;
-    animation: bgroop 20s linear infinite;
+    -webkit-animation: bgroop 25s linear infinite;
+    animation: bgroop 25s linear infinite;
   }
 
   &-mv_cloud02 {
     background: url(../../image/page/top/bg_cloud_02.png);
-    animation: cloud01 25s linear infinite;
-    -webkit-animation: cloud01 25s linear infinite;
     width: 100%;
-    height: 600px;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     background-position: 0 0;
-    -webkit-animation: bgroop 20s linear infinite;
-    animation: bgroop 20s linear infinite;
+    -webkit-animation: bgroop 25s linear infinite;
+    animation: bgroop 25s linear infinite;
   }
 
   &-mv_triangle {
@@ -264,7 +260,7 @@
   }
 
   to {
-    background-position: 1956px 0;
+    background-position: 2000px 0;
   }
 }
 
@@ -274,7 +270,7 @@
   }
 
   to {
-    background-position: 1956px 0;
+    background-position: 2000px 0;
   }
 }
 
