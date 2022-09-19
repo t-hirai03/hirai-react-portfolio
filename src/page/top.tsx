@@ -5,7 +5,7 @@ import hiraiFaceImage from "../assets/image/top/face.jpg";
 import gitHubLogo from "../assets/image/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
-import "../assets/scss/top.scss";
+import "../assets/scss/page/top.scss";
 
 function top() {
   // const handleClick = (

@@ -3,7 +3,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import emailjs from "emailjs-com";
-import "../assets/scss/contact.scss";
+import "../assets/scss/components/contact.scss";
 import ReactModal from "./modal";
 
 type Inputs = {
