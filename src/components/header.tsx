@@ -9,12 +9,6 @@ function header() {
   const expandMenu = (
     event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>
   ) => {
-    console.log("expandMenu");
-    // let headerBar = document.getElementById("header_bar")!;
-    // if (window.pageYOffset === 0) {
-    //   headerBar.classList.toggle("header-hide");
-    // }
-
     // 展開フラグの真偽値を逆転させる
     isExpand = !isExpand;
 

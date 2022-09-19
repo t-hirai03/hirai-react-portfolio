@@ -2,6 +2,7 @@ import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import emailjs from "emailjs-com";
 import "../assets/scss/contact.scss";
 
 type Inputs = {
@@ -18,13 +19,23 @@ export const Demo = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  // EmailJSでメール送信処理を行う
+  const sendEmail: SubmitHandler<Inputs> = (formData) => {
+    emailjs
+      .send("service_q33y4rh", "template_96aqcml", formData, "rawkfONLc6juf6E_5")
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     reset();
   };
 
   return (
-    <form className="contact" onSubmit={handleSubmit(onSubmit)}>
+    <form className="contact" onSubmit={handleSubmit(sendEmail)}>
       <div className="contact-input-field">
         <input {...register("name")} placeholder="Name" required />
         {/* <label>Name</label> */}
