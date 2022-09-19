@@ -1,8 +1,8 @@
 import React from "react";
-import dogIcon from "../assets/image/top/dog_icon.png";
-import scrollDownIcon from "../assets/image/top/scroll_down.svg";
-import hiraiFaceImage from "../assets/image/top/face.jpg";
-import gitHubLogo from "../assets/image/top/github-icon.svg";
+import dogIcon from "../assets/image/page/top/dog_icon.png";
+import scrollDownIcon from "../assets/image/page/top/scroll_down.svg";
+import hiraiFaceImage from "../assets/image/page/top/face.jpg";
+import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import "../assets/scss/page/top.scss";
