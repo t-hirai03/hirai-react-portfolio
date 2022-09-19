@@ -1,5 +1,4 @@
 import React from "react";
-import dogIcon from "../assets/image/page/top/dog_icon.png";
 import scrollDownIcon from "../assets/image/page/top/scroll_down.svg";
 import hiraiFaceImage from "../assets/image/page/top/face.jpg";
 import gitHubLogo from "../assets/image/page/top/github-icon.svg";
@@ -19,20 +18,16 @@ function top() {
       <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>
-        <div className="top-mv_triangle"></div>
-        <div className="top-mv_bar fadeIn">
+        <div className="top-mv_bar">
           <h1>
             ポートフォリオ
             <br />
             平井隆裕
           </h1>
         </div>
-        <div className="top-mv_dog fadeIn">
-          <img src={dogIcon} alt="dogIcon" />
-        </div>
         <div className="top-mv_underArea">
           <a href="#profile" className="top-mv_scrollDown">
-            <img src={scrollDownIcon} className="fadeIn" alt="scroll_down" />
+            <img src={scrollDownIcon} alt="scroll_down" />
           </a>
         </div>
       </section>
