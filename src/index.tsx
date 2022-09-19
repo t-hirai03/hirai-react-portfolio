@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './assets/scss/index.scss';
 import HeaderSection from './components/header';
-import Top from './components/top';
+import Top from './page/top';
 import FooterSection from './components/footer';
 import reportWebVitals from './reportWebVitals';
 import 'ress';

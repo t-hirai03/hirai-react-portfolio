@@ -11,7 +11,7 @@ function footer() {
         </a>
       </div>
       <div className="ly_inner footer-copyRight">
-        <p>© 2022 Takahiro hirai</p>
+        <p>&copy; Takahiro hirai all right reserved.</p>
       </div>
     </footer>
   );

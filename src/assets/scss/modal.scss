@@ -1,0 +1,19 @@
+@use "system.scss" as *;
+
+.modal {
+    &-header {
+        height: 50px;
+        text-align: right;
+
+        img {
+            height: 35px;
+            cursor: pointer;
+            padding-top: 5px;
+            padding-right: 5px;
+        }
+    }
+
+    &-contents {
+        padding: 20px;
+    }
+}
