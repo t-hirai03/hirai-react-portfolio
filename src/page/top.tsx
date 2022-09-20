@@ -5,12 +5,14 @@ import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import DrawCanvas from "../components/drawCanvas";
+import Gsap from "../components/gsap";
 import "../assets/scss/page/top.scss";
 
 function top() {
   return (
     <div className="top ly_main">
       <DrawCanvas />
+      <Gsap />
       {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>
