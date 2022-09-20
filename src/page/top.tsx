@@ -4,18 +4,14 @@ import hiraiFaceImage from "../assets/image/page/top/face.jpg";
 import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
+import DrawCanvas from "../components/drawCanvas";
 import "../assets/scss/page/top.scss";
 
 function top() {
-  // const handleClick = (
-  //   event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>
-  // ) => {
-  //   console.log("確認");
-  // };
-
   return (
     <div className="top ly_main">
-      <section className="top-mv">
+      <DrawCanvas />
+      {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>
         <div className="top-mv_bar">
@@ -30,7 +26,7 @@ function top() {
             <img src={scrollDownIcon} alt="scroll_down" />
           </a>
         </div>
-      </section>
+      </section> */}
       <section className="top-section">
         <div className="ly_inner">
           <h2 className="top-contents_title">About</h2>
