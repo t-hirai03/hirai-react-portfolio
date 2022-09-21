@@ -61,7 +61,7 @@ function header() {
         <div className="header-navMenu">
           <ul className="header-navMenu-list">
             <li className="header-navMenu-item">
-              <a href="/">
+              <a href="#about">
                 <span>Top</span>
               </a>
             </li>

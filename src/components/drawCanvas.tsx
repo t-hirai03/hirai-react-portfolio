@@ -67,6 +67,7 @@ function Items() {
   const { width: w, height: h } = useThree((state) => state.viewport)
   return (
     <Scroll>
+      <Image url={face} position={[-w / 6, 0, 0]} />
       <Item url={face} scale={[w / 3, w / 3, 1]} />
       {/* <Item url={face} scale={[w / 3, w / 3, 1]} position={[-w / 6, 0, 0]} /> */}
       {/* <Item url="/2.jpg" scale={[2, w / 3, 1]} position={[w / 30, -h, 0]} />
@@ -82,17 +83,16 @@ function Items() {
 }
 
 export const App = () => (
-  <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]} flat>
-    <color attach="background" args={['#168473']} />
+  <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]} style={{ height: '100vh' }}>
+    <color attach="background" args={['#f0f0f0']} />
     <ScrollControls damping={6} pages={5} style={{ height: '100vh' }}>
-      <Items />
-      {/* <Scroll html style={{ width: '100%' }}> */}
+      {/* <Items /> */}
       <Scroll html>
-        <h1 style={{ position: 'absolute', top: '100vh', right: '20vw', fontSize: '25em', transform: `translate3d(0,-100%,0)` }}>all</h1>
-        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw' }}>hail</h1>
-        <h1 style={{ position: 'absolute', top: '260vh', right: '10vw' }}>thee,</h1>
-        <h1 style={{ position: 'absolute', top: '350vh', left: '10vw' }}>thoth</h1>
-        <h1 style={{ position: 'absolute', top: '450vh', right: '10vw' }}>
+        <h1>mv</h1>
+        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw' }}>about</h1>
+        <h1 style={{ position: 'absolute', top: '260vh', left: '10vw' }}>skill</h1>
+        <h1 style={{ position: 'absolute', top: '350vh', left: '10vw' }}>contact</h1>
+        <h1 style={{ position: 'absolute', top: '450vh', left: '10vw' }}>
           her
           <br />
           mes.

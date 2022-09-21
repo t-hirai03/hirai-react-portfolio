@@ -11,7 +11,7 @@ function footer() {
         </a>
       </div>
       <div className="ly_inner footer-copyRight">
-        <p>&copy; Takahiro hirai all right reserved.</p>
+        <p>&copy; takahiro hirai all right reserved.</p>
       </div>
     </footer>
   );

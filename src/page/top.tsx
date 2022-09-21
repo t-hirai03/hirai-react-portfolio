@@ -4,6 +4,7 @@ import hiraiFaceImage from "../assets/image/page/top/face.jpg";
 import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
+import Footer from "../components/footer";
 import DrawCanvas from "../components/drawCanvas";
 import Gsap from "../components/gsap";
 import "../assets/scss/page/top.scss";
@@ -11,8 +12,8 @@ import "../assets/scss/page/top.scss";
 function top() {
   return (
     <div className="top ly_main">
-      <DrawCanvas />
-      <Gsap />
+      {/* <DrawCanvas /> */}
+      {/* <Gsap /> */}
       {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>
@@ -29,7 +30,7 @@ function top() {
           </a>
         </div>
       </section> */}
-      <section className="top-section">
+      <section id="about" className="top-section">
         <div className="ly_inner">
           <h2 className="top-contents_title">About</h2>
           <div className="top-about">
