@@ -161,6 +161,7 @@
 
     @include MQ(md) {
       font-size: 2rem;
+      margin: 1.3rem 0 1.3rem 0;
     }
   }
 
@@ -183,12 +184,22 @@
       width: 100%;
       max-width: 300px;
       box-shadow: -1.875rem 1.875rem 0 $darkBlueColor;
+
+      @include MQ(md) {
+        max-width: 210px;
+        box-shadow: -1.25rem 1.25rem 0 $darkBlueColor;
+      }
     }
   }
 
   &-about_text {
     margin-top: 30px;
     margin-bottom: 30px;
+
+    @include MQ(md) {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
   }
 
   &-about_item {
@@ -197,7 +208,7 @@
     background-color: $themeColor;
 
     @include MQ(md) {
-      margin-top: 50px;
+      margin-top: 35px;
       width: 100%;
     }
   }
@@ -209,6 +220,10 @@
 
     img {
       width: 40px;
+
+      @include MQ(md) {
+        width: 35px;
+      }
     }
   }
 
@@ -232,6 +247,7 @@
         display: flex;
         justify-content: space-around;
       }
+
       @include MQ(md) {
         display: none;
       }
@@ -241,6 +257,7 @@
       @include MQ(cont) {
         display: none;
       }
+
       @include MQ(md) {
         display: block;
       }
@@ -255,7 +272,6 @@
 
   &-skill_text {
     margin-bottom: 15px;
-    line-height: 2rem;
   }
 
   &-contact {
@@ -295,7 +311,7 @@
     padding-bottom: 50px;
   }
 
-  &-slide{
+  &-slide {
     width: 270px !important;
     border: solid 1px #004C71;
     border-radius: 20px;
