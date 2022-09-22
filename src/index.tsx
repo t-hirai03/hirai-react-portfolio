@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./assets/scss/index.scss";
 import HeaderSection from "./components/header";
 import Top from "./page/top";
-import FooterSection from "./components/footer";
+// import FooterSection from "./components/footer";
 import reportWebVitals from "./reportWebVitals";
 import "ress";
 import "sanitize.css";
@@ -48,21 +48,6 @@ root.render(
     {/* フッター */}
     {/* <FooterSection /> */}
   </React.StrictMode>
-);
-
-export const App = () => (
-  <Canvas
-    orthographic
-    camera={{ zoom: 80 }}
-    gl={{ alpha: false, antialias: false, stencil: false, depth: false }}
-    dpr={[1, 1.5]}
-    style={{ height: "100vh" }}
-  >
-    <color attach="background" args={["#f0f0f0"]} />
-    <ScrollControls damping={6} pages={5} style={{ height: "100vh" }}>
-      <Scroll html></Scroll>
-    </ScrollControls>
-  </Canvas>
 );
 
 // If you want to start measuring performance in your app, pass a function
