@@ -227,9 +227,23 @@
     margin-top: 15px;
     margin-bottom: 15px;
 
-    @include MQ(cont) {
-      display: flex;
-      justify-content: space-around;
+    &_pc {
+      @include MQ(cont) {
+        display: flex;
+        justify-content: space-around;
+      }
+      @include MQ(md) {
+        display: none;
+      }
+    }
+
+    &_sp {
+      @include MQ(cont) {
+        display: none;
+      }
+      @include MQ(md) {
+        display: block;
+      }
     }
 
     &_contents {
@@ -274,17 +288,21 @@
   }
 }
 
-// @media (prefers-reduced-motion: no-preference) {
-//   .top-logo {
-//     animation: top-logo-spin infinite 20s linear;
-//   }
-// }
+.swiper {
+  &-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 
-// @keyframes top-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+  &-slide{
+    width: 270px !important;
+    border: solid 1px #004C71;
+    border-radius: 20px;
+    background-color: #ffffff;
+  }
+
+  &-pagination {
+    bottom: -1px !important;
+  }
+}

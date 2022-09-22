@@ -8,6 +8,12 @@ import Footer from "../components/footer";
 import DrawCanvas from "../components/drawCanvas";
 import Gsap from "../components/gsap";
 import "../assets/scss/page/top.scss";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCube, Pagination, EffectCards, EffectCoverflow } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
 
 function top() {
   return (
@@ -93,43 +99,106 @@ function top() {
             <p>＊業務で実際に使用した技術のみ掲載しております。</p>
           </div>
           <div className="top-chart">
-            <div className="top-chart_contents">
-              <Charts
-                titleLabel={"font-end"}
-                Label01={"HTML/CSS"}
-                data01={3}
-                Label02={"JavaScript"}
-                data02={3}
-                Label03={"jQuery"}
-                data03={3}
-                Label04={"Nuxt.js/Vue.js"}
-                data04={3}
-                Label05={"Wordpress"}
-                data05={2}
-                Label06={""}
-                data06={0}
-                graphBackgroundColor={"rgba(255, 99, 132, 0.2)"}
-                graphBorderColor={"rgb(255, 99, 132)"}
-              />
+            <div className="top-chart_pc">
+              <div className="top-chart_contents">
+                <Charts
+                  titleLabel={"font-end"}
+                  Label01={"HTML/CSS"}
+                  data01={3}
+                  Label02={"JavaScript"}
+                  data02={3}
+                  Label03={"jQuery"}
+                  data03={3}
+                  Label04={"Nuxt.js/Vue.js"}
+                  data04={3}
+                  Label05={"Wordpress"}
+                  data05={2}
+                  Label06={""}
+                  data06={0}
+                  graphBackgroundColor={"rgba(255, 99, 132, 0.2)"}
+                  graphBorderColor={"rgb(255, 99, 132)"}
+                />
+              </div>
+              <div className="top-chart_contents">
+                <Charts
+                  titleLabel={"back-end"}
+                  Label01={"Java"}
+                  data01={3}
+                  Label02={"PostgreSQL"}
+                  data02={3}
+                  Label03={"Oracle"}
+                  data03={1}
+                  Label04={""}
+                  data04={0}
+                  Label05={""}
+                  data05={0}
+                  Label06={""}
+                  data06={0}
+                  graphBackgroundColor={"rgba(75, 192, 192, 0.2)"}
+                  graphBorderColor={"rgb(75, 192, 192)"}
+                />
+              </div>
             </div>
-            <div className="top-chart_contents">
-              <Charts
-                titleLabel={"back-end"}
-                Label01={"Java"}
-                data01={3}
-                Label02={"PostgreSQL"}
-                data02={3}
-                Label03={"Oracle"}
-                data03={1}
-                Label04={""}
-                data04={0}
-                Label05={""}
-                data05={0}
-                Label06={""}
-                data06={0}
-                graphBackgroundColor={"rgba(75, 192, 192, 0.2)"}
-                graphBorderColor={"rgb(75, 192, 192)"}
-              />
+            <div className="top-chart_sp">
+              <Swiper
+                effect={"coverflow"}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={"auto"}
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 80,
+                  depth: 200,
+                  modifier: 1,
+                  slideShadows: false,
+                }}
+                pagination={true}
+                modules={[EffectCoverflow, Pagination]}
+                className="swiper-container"
+              >
+                <SwiperSlide>
+                  <div>
+                    <Charts
+                      titleLabel={"font-end"}
+                      Label01={"HTML/CSS"}
+                      data01={3}
+                      Label02={"JavaScript"}
+                      data02={3}
+                      Label03={"jQuery"}
+                      data03={3}
+                      Label04={"Nuxt.js/Vue.js"}
+                      data04={3}
+                      Label05={"Wordpress"}
+                      data05={2}
+                      Label06={""}
+                      data06={0}
+                      graphBackgroundColor={"rgba(255, 99, 132, 0.2)"}
+                      graphBorderColor={"rgb(255, 99, 132)"}
+                    />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div>
+                    <Charts
+                      titleLabel={"back-end"}
+                      Label01={"Java"}
+                      data01={3}
+                      Label02={"PostgreSQL"}
+                      data02={3}
+                      Label03={"Oracle"}
+                      data03={1}
+                      Label04={""}
+                      data04={0}
+                      Label05={""}
+                      data05={0}
+                      Label06={""}
+                      data06={0}
+                      graphBackgroundColor={"rgba(75, 192, 192, 0.2)"}
+                      graphBorderColor={"rgb(75, 192, 192)"}
+                    />
+                  </div>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
           <div>
