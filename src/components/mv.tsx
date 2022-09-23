@@ -185,7 +185,6 @@ function App() {
           <span>PORTFOLIO</span>
         </div>
       </div>
-      {/* <div className="mv-radius"></div> */}
     </div>
   );
 }
