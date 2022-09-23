@@ -1,15 +1,13 @@
 import React from "react";
-import scrollDownIcon from "../assets/image/page/top/scroll_down.svg";
 import hiraiFaceImage from "../assets/image/page/top/face.jpg";
 import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
-import Footer from "../components/footer";
-import DrawCanvas from "../components/drawCanvas";
-import Gsap from "../components/mv";
+// import Footer from "../components/footer";
+import Mv from "../components/mv";
 import "../assets/scss/page/top.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCube, Pagination, EffectCards, EffectCoverflow } from "swiper";
+import { Pagination, EffectCoverflow } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/effect-cards";
@@ -20,7 +18,7 @@ function top() {
     <div className="top ly_main">
       {/* <DrawCanvas /> */}
       <section>
-        <Gsap />
+        <Mv />
       </section>
       {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
@@ -94,7 +92,7 @@ function top() {
           <h2 className="top-contents_title">My skill set</h2>
           <div>
             <p className="top-skill_text">
-              業務で身につけたスキルをグラフィカルにまとめました。フロントからバックエンドまで取り組んできました。
+              業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
               オールラウンドに対応できる点が強みですが、全体的に理解が浅く、専門性の低さを認識しています。今後はフロントエンド系の開発の業務に携わる比率を増やし、
               少しずつ専門性を高めていきたいと考えています。
             </p>

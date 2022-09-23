@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/scss/components/modal.scss";
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import ReactModal from "react-modal";
 import modalCloseIcon from "../assets/image/components/modal/modal-close.svg";
 
