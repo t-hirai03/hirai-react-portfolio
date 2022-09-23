@@ -1,0 +1,55 @@
+@use "../system.scss" as *;
+
+.mv {
+  z-index: 100;
+  height: calc(100vh - 70px);
+  width: 100%;
+  background-color: #f0efeb;
+
+  @include MQ(md) {
+    height: 100vh;
+  }
+
+  &-leftUp {
+    font-family: sans-serif;
+    text-align: center;
+    display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+    position: relative;
+    background-color: #424242;
+    width: 100%;
+
+    @include MQ(md) {
+      padding-top: 70px;
+    }
+
+    &_text {
+      font-size: 130px;
+      color: #424242;
+      letter-spacing: -.002em;
+
+      @include MQ(xl) {
+        font-size: 100px;
+      }
+
+      @include MQ(ipad) {
+        font-size: 80px;
+      }
+
+      @include MQ(md) {
+        font-size: 40px;
+      }
+    }
+  }
+
+  &-radius {
+    width: 200px;
+    height: 200px;
+    background-color: #424242;
+    border-radius: 50%;
+  }
+}
+
+/* background-color: #f0efeb; */

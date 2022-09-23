@@ -41,66 +41,80 @@
 //   );
 // };
 
-import * as THREE from 'three'
-import React,{ useRef } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useIntersect, Image, ScrollControls, Scroll } from '@react-three/drei'
-import face from "../assets/image/page/top/face.jpg";
+import { OrbitControls, useCursor } from '@react-three/drei'
+import { AsciiEffect } from 'three-stdlib'
+import { Mesh } from 'three';
 
-function Item({ url, scale, ...props }: { url: string,scale: any }) {
-  // const visible = useRef(false)
-  // const ref = useIntersect((isVisible) => (visible.current = isVisible))
-  // const { height } = useThree((state) => state.viewport)
-  // useFrame((state, delta) => {
-  //   ref.current.position.y = THREE.MathUtils.damp(ref.current.position.y, visible.current ? 0 : -height / 2 + 1, 4, delta)
-  //   ref.current.material.zoom = THREE.MathUtils.damp(ref.current.material.zoom, visible.current ? 1 : 1.5, 4, delta)
-  // }
-
+export const App = () => {
   return (
-    <group {...props}>
-      <Image scale={scale} url={url} />
-    </group>
+    <Canvas>
+      <color attach="background" args={['black']} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <pointLight position={[-10, -10, -10]} />
+      <Torusknot />
+      <OrbitControls />
+      {/* <AsciiRenderer invert /> */}
+    </Canvas>
   )
 }
 
-function Items() {
-  const { width: w, height: h } = useThree((state) => state.viewport)
+function Torusknot(props:any) {
+  const ref = useRef<Mesh>(null!);
+  const [clicked, click] = useState(false)
+  const [hovered, hover] = useState(false)
+  useCursor(hovered)
+  useFrame((state, delta) => (ref.current.rotation.x = ref.current.rotation.y += delta / 2))
   return (
-    <Scroll>
-      <Image url={face} position={[-w / 6, 0, 0]} />
-      <Item url={face} scale={[w / 3, w / 3, 1]} />
-      {/* <Item url={face} scale={[w / 3, w / 3, 1]} position={[-w / 6, 0, 0]} /> */}
-      {/* <Item url="/2.jpg" scale={[2, w / 3, 1]} position={[w / 30, -h, 0]} />
-      <Item url="/3.jpg" scale={[w / 3, w / 5, 1]} position={[-w / 4, -h * 1, 0]} />
-      <Item url="/4.jpg" scale={[w / 5, w / 5, 1]} position={[w / 4, -h * 1.2, 0]} />
-      <Item url="/5.jpg" scale={[w / 5, w / 5, 1]} position={[w / 10, -h * 1.75, 0]} />
-      <Item url="/6.jpg" scale={[w / 3, w / 3, 1]} position={[-w / 4, -h * 2, 0]} />
-      <Item url="/7.jpg" scale={[w / 3, w / 5, 1]} position={[-w / 4, -h * 2.6, 0]} />
-      <Item url="/8.jpg" scale={[w / 2, w / 2, 1]} position={[w / 4, -h * 3.1, 0]} />
-      <Item url="/12.jpg" scale={[w / 2.5, w / 2, 1]} position={[-w / 6, -h * 4.1, 0]} /> */}
-    </Scroll>
+    <mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 1.5 : 1.25}
+      onClick={() => click(!clicked)}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}>
+      <torusKnotGeometry args={[1, 0.2, 128, 32]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
   )
 }
 
-export const App = () => (
-  <Canvas orthographic camera={{ zoom: 80 }} gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]} style={{ height: '100vh' }}>
-    <color attach="background" args={['#f0f0f0']} />
-    <ScrollControls damping={6} pages={5} style={{ height: '100vh' }}>
-      {/* <Items /> */}
-      <Scroll html>
-        <h1>mv</h1>
-        <h1 style={{ position: 'absolute', top: '180vh', left: '10vw' }}>about</h1>
-        <h1 style={{ position: 'absolute', top: '260vh', left: '10vw' }}>skill</h1>
-        <h1 style={{ position: 'absolute', top: '350vh', left: '10vw' }}>contact</h1>
-        <h1 style={{ position: 'absolute', top: '450vh', left: '10vw' }}>
-          her
-          <br />
-          mes.
-        </h1>
-      </Scroll>
-    </ScrollControls>
-  </Canvas>
-)
+function AsciiRenderer({ renderIndex = 1, characters = ' .:-+*=%@#', ...options }) {
+  // Reactive state
+  const { size, gl, scene, camera } = useThree()
+
+  // Create effect
+  const effect = useMemo(() => {
+    const effect = new AsciiEffect(gl, characters, options)
+    effect.domElement.style.position = 'absolute'
+    effect.domElement.style.top = '0px'
+    effect.domElement.style.left = '0px'
+    effect.domElement.style.color = 'white'
+    effect.domElement.style.backgroundColor = 'black'
+    effect.domElement.style.pointerEvents = 'none'
+    return effect
+  }, [characters, options.invert])
+
+  // Append on mount, remove on unmount
+  // useEffect(() => {
+  //   gl.domElement.parentNode.appendChild(effect.domElement);
+  //   return () => gl.domElement.parentNode.removeChild(effect.domElement)
+  // }, [effect])
+
+  // Set size
+  useEffect(() => {
+    effect.setSize(size.width, size.height)
+  }, [effect, size])
+
+  // Take over render-loop (that is what the index is for)
+  useFrame((state) => {
+    effect.render(scene, camera)
+  }, renderIndex)
+
+  // This component returns nothing, it has no view, it is a purely logical
+}
+
 
 
 export default App;

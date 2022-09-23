@@ -8,7 +8,7 @@ import Footer from "../components/footer";
 import DrawCanvas from "../components/drawCanvas";
 import Gsap from "../components/gsap";
 import "../assets/scss/page/top.scss";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination, EffectCards, EffectCoverflow } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-cube";
@@ -19,7 +19,9 @@ function top() {
   return (
     <div className="top ly_main">
       {/* <DrawCanvas /> */}
-      {/* <Gsap /> */}
+      <section>
+        <Gsap />
+      </section>
       {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>

@@ -21,32 +21,29 @@ root.render(
     <HeaderSection />
     {/* コンテンツ */}
     <div className="index-contents">
-    <Canvas
-      orthographic
-      camera={{ zoom: 80 }}
-      gl={{ alpha: false, antialias: false, stencil: false, depth: false }}
-      dpr={[1, 1.5]}
-      style={{
-        height: "100vh",
-      }}
-    >
-      {/* <color attach="background" args={["#f0f0f0"]} /> */}
-      <color attach="background" args={["#fff"]} />
-      <ScrollControls
-        pages={3} // Each page takes 100% of the height of the canvas
-        distance={1} // A factor that increases scroll bar travel (default: 1)
-        damping={6} // Friction, higher is faster (default: 4)
-        horizontal={false} // Can also scroll horizontally (default: false)
-        infinite={false} // Can also scroll infinitely (default: false)
+      <Canvas
+        orthographic
+        camera={{ zoom: 80 }}
+        gl={{ alpha: false, antialias: false, stencil: false, depth: false }}
+        dpr={[1, 1.5]}
+        style={{
+          height: "100vh",
+        }}
       >
-        <Scroll html>
-          <Top />
-        </Scroll>
-      </ScrollControls>
-    </Canvas>
+        <color attach="background" args={["#fff"]} />
+        <ScrollControls
+          pages={4} // Each page takes 100% of the height of the canvas
+          distance={1} // A factor that increases scroll bar travel (default: 1)
+          damping={6} // Friction, higher is faster (default: 4)
+          horizontal={false} // Can also scroll horizontally (default: false)
+          infinite={false} // Can also scroll infinitely (default: false)
+        >
+          <Scroll html>
+            <Top />
+          </Scroll>
+        </ScrollControls>
+      </Canvas>
     </div>
-    {/* フッター */}
-    {/* <FooterSection /> */}
   </React.StrictMode>
 );
 
