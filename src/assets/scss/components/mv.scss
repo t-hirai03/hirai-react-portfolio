@@ -4,7 +4,9 @@
   z-index: 100;
   height: calc(100vh - 70px);
   width: 100%;
-  background-color: #f0efeb;
+  // background-color: #f0efeb;
+  // background-color: #55b1ff;
+  background-color: #333333;
 
   @include MQ(md) {
     height: 100vh;
@@ -18,7 +20,8 @@
     -webkit-text-fill-color: transparent;
     font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
     position: relative;
-    background-color: #424242;
+    // background-color: #424242;
+    background-color: #ffffff;
     width: 100%;
 
     @include MQ(md) {
@@ -27,7 +30,6 @@
 
     &_text {
       font-size: 130px;
-      color: #424242;
       letter-spacing: -.002em;
 
       @include MQ(xl) {
@@ -44,12 +46,22 @@
     }
   }
 
-  &-radius {
-    width: 200px;
-    height: 200px;
-    background-color: #424242;
-    border-radius: 50%;
+  // &-radius {
+  //   width: 200px;
+  //   height: 200px;
+  //   // background-color: #424242;
+  //   background-color: #55b1ff;
+  //   border-radius: 50%;
+  // }
+
+  #particles-js {
+    #tsparticles{
+      canvas {
+        height: 100vh !important;
+        padding-top: 70px;
+      }
+    }
   }
 }
 
-/* background-color: #f0efeb; */
+

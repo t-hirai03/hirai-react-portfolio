@@ -6,7 +6,7 @@ import Charts from "../components/chart";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
 import DrawCanvas from "../components/drawCanvas";
-import Gsap from "../components/gsap";
+import Gsap from "../components/mv";
 import "../assets/scss/page/top.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination, EffectCards, EffectCoverflow } from "swiper";
