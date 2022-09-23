@@ -3,34 +3,25 @@ import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles"
+import { loadFull } from "tsparticles";
 
 function App() {
   gsap.registerPlugin(ScrollTrigger);
   const div = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    // var tl = gsap.timeline({ repaet: -1 });
-    // tl.to(".mv-radius", {
-    //   // x: 600, // 右方向に600動く
-    //   // rotation: 360, // 開始〜終了までの間で360度回転する
-    //   // duration: 1, // アニメーションは1秒間
-    //   // scrollTrigger: {
-    //   //   trigger: div.current, // 要素".b"がビューポートに入ったときにアニメーション開始
-    //   //   start: "top center", // アニメーション開始位置
-    //   //   end: "top 300px", // アニメーション終了位置
-    //   //   scrub: true, // アニメーションをスクロール位置にリンクさせる
-    //   //   markers: true, // マーカー表示
-    //   // },
-    //   x: "random([20, 30, 50, 80, 90])",
-    //   y: "random(-100, 100, 5)",
-    // });
-    gsap.from(div.current, {
-      autoAlpha: 0,
-      scale: 0,
-      y: 1000,
-      duration: 1.5,
-      opacity: 0,
-    });
+    gsap.fromTo(
+      ".mv-leftUp_text",
+      2,
+      { y: 1000, scale: 0, opacity: 0, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        scale: 1,
+        duration: 1.5,
+        opacity: 1,
+        stagger: 0.5,
+      }
+    );
   }, [div]);
 
   const particlesInit = useCallback(async (engine: any) => {
@@ -52,8 +43,6 @@ function App() {
           id="tsparticles"
           init={particlesInit}
           loaded={particlesLoaded}
-          width={"100vw"}
-          height="100vh"
           options={{
             fullScreen: {
               enable: true,
@@ -114,7 +103,7 @@ function App() {
               },
               move: {
                 enable: true,
-                speed: 3,
+                speed: 2,
                 direction: "none",
                 random: false,
                 straight: false,
@@ -167,17 +156,14 @@ function App() {
               },
             },
             retina_detect: true,
-            // background: {
-            //   image: "url('https://particles.js.org/images/background3.jpg')",
-            // },
             style: {
-              width: '100%',
-              height:"100vh",
-            }
+              width: "100%",
+              height: "100vh",
+            },
           }}
         />
       </div>
-      <div ref={div} className="mv-leftUp">
+      <div className="mv-leftUp">
         <div className="mv-leftUp_text">
           <span>HIRAI TAKAHIRO</span>
         </div>

@@ -29,13 +29,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @include MQ(md) {
-      padding-top: 70px;
-    }
-
     &_text {
       font-size: 130px;
       letter-spacing: -.002em;
+      -webkit-background-clip: text;
+      background-color: #ffffff;
 
       @include MQ(xl) {
         font-size: 100px;
