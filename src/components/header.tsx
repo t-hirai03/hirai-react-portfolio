@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/scss/components/header.scss";
 import "../assets/scss/layout.scss";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function header() {
   // ハンバーガーメニューの展開制御する変数
@@ -64,6 +65,7 @@ function header() {
               <a href="#about">
                 <span>Top</span>
               </a>
+              {/* <AnchorLink href={"#about"}  offset={() => 100}><span>Top</span></AnchorLink> */}
             </li>
           </ul>
         </div>

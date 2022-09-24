@@ -1,4 +1,4 @@
-import React from "react";
+import react, { useRef, useEffect, useCallback } from "react";
 import hiraiFaceImage from "../assets/image/page/top/face.jpg";
 import gitHubLogo from "../assets/image/page/top/github-icon.svg";
 import Charts from "../components/chart";
@@ -12,14 +12,79 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/effect-cards";
 import "swiper/css/pagination";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function top() {
+function Top() {
+  gsap.registerPlugin(ScrollTrigger);
+  const div = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    gsap.fromTo(
+      ".fadeIn-about",
+      {
+        opacity: 0,
+        y:100,
+        duration: 1,
+      },
+      {
+        y: 0, // 右方向に500動く
+        duration: 1, // アニメーションは1秒間
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".fadeIn-about", // 要素".a"がビューポートに入ったときにアニメーション開始
+          start: "top center", // アニメーション開始位置
+          end:"center 300px",
+          // scrub: true,
+          // markers: true, // マーカー表示
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".fadeIn-skill",
+      {
+        opacity: 0,
+        y:100,
+        duration: 1,
+      },
+      {
+        y: 0, // 右方向に500動く
+        duration: 1, // アニメーションは1秒間
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".fadeIn-skill", // 要素".a"がビューポートに入ったときにアニメーション開始
+          start: "top center", // アニメーション開始位置
+          end:"center 300px",
+          // scrub: true,
+          // markers: true, // マーカー表示
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".fadeIn-contact",
+      {
+        opacity: 0,
+        y:100,
+        duration: 1,
+      },
+      {
+        y: 0, // 右方向に500動く
+        duration: 1, // アニメーションは1秒間
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".fadeIn-contact", // 要素".a"がビューポートに入ったときにアニメーション開始
+          start: "top center", // アニメーション開始位置
+          end:"center 300px",
+          // scrub: true,
+          // markers: true, // マーカー表示
+        },
+      }
+    );
+  }, [div]);
+
   return (
     <div className="top ly_main">
-      {/* <DrawCanvas /> */}
-      <section>
-        <Mv />
-      </section>
       {/* <section className="top-mv">
         <div className="top-mv_cloud01"></div>
         <div className="top-mv_cloud02"></div>
@@ -36,7 +101,10 @@ function top() {
           </a>
         </div>
       </section> */}
-      <section id="about" className="top-section">
+      <section id="mv">
+        <Mv />
+      </section>
+      <section id="about" className="top-section fadeIn-about">
         <div className="ly_inner">
           <h2 className="top-contents_title">About</h2>
           <div className="top-about">
@@ -87,7 +155,7 @@ function top() {
           </div>
         </div>
       </section>
-      <section className="top-section">
+      <section className="top-section fadeIn-skill">
         <div className="ly_inner">
           <h2 className="top-contents_title">My skill set</h2>
           <div>
@@ -210,7 +278,7 @@ function top() {
           </div>
         </div>
       </section>
-      <section className="top-section">
+      <section className="top-section fadeIn-contact">
         <div className="ly_inner">
           <h2 className="top-contents_title">Contact me</h2>
           <div className="top-contact">
@@ -227,4 +295,4 @@ function top() {
   );
 }
 
-export default top;
+export default Top;

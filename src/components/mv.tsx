@@ -6,7 +6,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 function App() {
-  gsap.registerPlugin(ScrollTrigger);
+  // gsap.registerPlugin(ScrollTrigger);
   const div = useRef<HTMLDivElement>(null);
   useEffect(() => {
     gsap.fromTo(
@@ -158,7 +158,8 @@ function App() {
             retina_detect: true,
             style: {
               width: "100%",
-              height: "100vh",
+              height: "calc(100vh - 70px)",
+              position: "unset",
             },
           }}
         />

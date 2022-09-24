@@ -11,6 +11,7 @@ import "sanitize.css";
 import React, { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useIntersect, Image, ScrollControls, Scroll } from "@react-three/drei";
+import { animateScroll as scroll } from 'react-scroll'
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,7 +22,7 @@ root.render(
     <HeaderSection />
     {/* コンテンツ */}
     <div className="index-contents">
-      <Canvas
+      {/* <Canvas
         orthographic
         camera={{ zoom: 80 }}
         gl={{ alpha: false, antialias: false, stencil: false, depth: false }}
@@ -34,7 +35,7 @@ root.render(
         <ScrollControls
           pages={4} // Each page takes 100% of the height of the canvas
           distance={1} // A factor that increases scroll bar travel (default: 1)
-          damping={6} // Friction, higher is faster (default: 4)
+          damping={5} // Friction, higher is faster (default: 4)
           horizontal={false} // Can also scroll horizontally (default: false)
           infinite={false} // Can also scroll infinitely (default: false)
         >
@@ -42,7 +43,8 @@ root.render(
             <Top />
           </Scroll>
         </ScrollControls>
-      </Canvas>
+      </Canvas> */}
+      <Top />
     </div>
   </React.StrictMode>
 );
