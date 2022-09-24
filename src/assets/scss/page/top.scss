@@ -183,11 +183,11 @@
     img {
       width: 100%;
       max-width: 300px;
-      box-shadow: -1.875rem 1.875rem 0 $darkBlueColor;
+      box-shadow: -1.875rem 1.875rem 0 #C7B897;
 
       @include MQ(md) {
         max-width: 210px;
-        box-shadow: -1.25rem 1.25rem 0 $darkBlueColor;
+        box-shadow: -1.25rem 1.25rem 0 #C7B897;
       }
     }
   }
