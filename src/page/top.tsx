@@ -29,13 +29,12 @@ function Top() {
       },
       {
         x: 0,
-        duration: 1, // アニメーションは1秒間
+        duration: 1,
         opacity: 1,
         stagger: 0.8,
         scrollTrigger: {
           trigger: ".about-section",
           start: "top center",
-          // end: "center 300px",
         },
       }
     );
@@ -49,7 +48,7 @@ function Top() {
       },
       {
         x: 0,
-        duration: 1.5, // アニメーション間隔
+        duration: 1.5,
         opacity: 1,
         stagger: 0.8,
         scrollTrigger: {
@@ -72,7 +71,7 @@ function Top() {
         duration: 1,
         opacity: 1,
         scrollTrigger: {
-          trigger: ".fadeIn-contact",
+          trigger: ".fadeIn-section",
           start: "top center",
           end: "center 300px",
         },
@@ -275,10 +274,10 @@ function Top() {
           </div>
         </div>
       </section>
-      <section className="top-section fadeIn-contact">
+      <section className="top-section fadeIn-section">
         <div className="ly_inner">
           <h2 className="top-contents_title">Contact me</h2>
-          <div className="top-contact">
+          <div className="top-contact fadeIn-contact">
             <p>
               最後までご覧いただきありがとうございました。
               このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。

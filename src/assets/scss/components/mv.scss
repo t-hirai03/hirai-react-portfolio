@@ -48,6 +48,13 @@
         font-size: 40px;
       }
     }
+
+    h1 {
+      font-size: 70px;
+      @include MQ(md) {
+        font-size: 40px;
+      }
+    }
   }
 
   // &-radius {
@@ -66,5 +73,17 @@
         }
       }
     }
+  }
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: .1rem;
+  // position: relative;
+
+  span {
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-color: #ffffff;
   }
 }

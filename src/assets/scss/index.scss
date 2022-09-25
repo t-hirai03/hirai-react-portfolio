@@ -22,9 +22,9 @@ div {
 }
 
 /* Chrome, Safari 対応 */
-// div::-webkit-scrollbar {
-//   display: none;
-// }
+div::-webkit-scrollbar {
+  display: none;
+}
 
 .index {
   &-contents {
@@ -51,4 +51,16 @@ p {
     font-size: 14px;
     line-height: 1.5rem;
   }
+}
+
+h2 {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow: hidden;
 }

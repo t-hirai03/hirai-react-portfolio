@@ -22,13 +22,53 @@ function App() {
         stagger: 0.5,
       }
     );
+
+    // 文字のアニメーション
+    for (let i = 0; i < 2; i++) {
+      console.log(i);
+      const titleElement = document.querySelector(".mv-title_" + i),
+        titleTexts = titleElement!.textContent!.split("");
+
+      titleElement!.textContent = "";
+      let outputTexts = "";
+      titleTexts.forEach(
+        (text) =>
+          (outputTexts += text === " " ? " " : "<span>" + text + "</span>")
+      );
+      titleElement!.innerHTML = outputTexts;
+
+      const target = ".mv-title_" + i + " span";
+      document.querySelectorAll(target).forEach((el) => {
+        gsap.set(el, {
+          opacity: 0,
+          rotateX: "random(-90,90)",
+          rotateY: "random(-90,90)",
+          rotateZ: "random(-90,90)",
+          x: "random(-200,200)",
+          y: "random(-200,200)",
+          scale: 10,
+        });
+      });
+
+      const tl = gsap.timeline();
+      tl.to(target, 3, {
+        opacity: 1,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
+        x: 0,
+        y: 0,
+        ease: "power2.out",
+        scale: 1,
+        stagger: {
+          amount: 1,
+          from: "center",
+        },
+      })
+    }
   }, [div]);
 
   const particlesInit = useCallback(async (engine: any) => {
-    console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(engine);
   }, []);
 
@@ -165,12 +205,14 @@ function App() {
         />
       </div>
       <div className="mv-leftUp">
-        <div className="mv-leftUp_text">
+        <h1 className="mv-title_0">HIRAI TAKAHIRO</h1>
+        <h1 className="mv-title_1">PORTFOLIO</h1>
+        {/* <div className="mv-leftUp_text">
           <span>HIRAI TAKAHIRO</span>
         </div>
         <div className="mv-leftUp_text">
           <span>PORTFOLIO</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
