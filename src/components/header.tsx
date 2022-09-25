@@ -8,7 +8,7 @@ function header() {
   let isExpand:boolean = false;
   // ハンバーガーメニューボタンクリック時の処理
   const expandMenu = (
-    event: React.MouseEvent<HTMLButtonElement | HTMLDivElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement | HTMLDivElement | HTMLLIElement, MouseEvent>
   ) => {
     // 展開フラグの真偽値を逆転させる
     isExpand = !isExpand;
@@ -61,14 +61,14 @@ function header() {
       <nav id="header-nav" className="header-nav">
         <div className="header-navMenu">
           <ul className="header-navMenu-list">
-            <li className="header-navMenu-item">
-              <AnchorLink href={"#about"}  offset={() => 10}><span>About</span></AnchorLink>
+            <li className="header-navMenu-item" onClick={expandMenu}>
+              <AnchorLink href={"#about"}  offset={() => 0}><span>About</span></AnchorLink>
             </li>
-            <li className="header-navMenu-item">
-              <AnchorLink href={"#skill"}  offset={() => 10}><span>Skill</span></AnchorLink>
+            <li className="header-navMenu-item" onClick={expandMenu}>
+              <AnchorLink href={"#skill"}  offset={() => 0}><span>Skill</span></AnchorLink>
             </li>
-            <li className="header-navMenu-item">
-              <AnchorLink href={"#contact"}  offset={() => 10}><span>Contact</span></AnchorLink>
+            <li className="header-navMenu-item" onClick={expandMenu}>
+              <AnchorLink href={"#contact"}  offset={() => 0}><span>Contact</span></AnchorLink>
             </li>
           </ul>
         </div>

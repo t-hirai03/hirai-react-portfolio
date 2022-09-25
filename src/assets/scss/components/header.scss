@@ -171,6 +171,8 @@
       transition: opacity .3s ease-in;
       text-decoration: none;
       position: relative;
+      color: #425052;
+      font-weight: bold;
 
       &:hover {
         opacity: 0.75;
@@ -240,18 +242,3 @@
     }
   }
 }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
