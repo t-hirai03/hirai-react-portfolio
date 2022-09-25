@@ -134,7 +134,7 @@ function Top() {
               </div>
             </div>
           </section>
-          <section className="top-section skill-section">
+          <section id="skill" className="top-section skill-section">
             <div className="ly_inner">
               <h2 className="top-contents_title fadeIn-skill">My skill set</h2>
               <div className="fadeIn-skill">
@@ -257,7 +257,7 @@ function Top() {
               </div>
             </div>
           </section>
-          <section className="top-section fadeIn-section">
+          <section id="contact" className="top-section fadeIn-section">
             <div className="ly_inner">
               <h2 className="top-contents_title fadeIn-contact">Contact me</h2>
               <div className="top-contact fadeIn-contact">

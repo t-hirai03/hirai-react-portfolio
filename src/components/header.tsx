@@ -62,10 +62,13 @@ function header() {
         <div className="header-navMenu">
           <ul className="header-navMenu-list">
             <li className="header-navMenu-item">
-              <a href="#about">
-                <span>Top</span>
-              </a>
-              {/* <AnchorLink href={"#about"}  offset={() => 100}><span>Top</span></AnchorLink> */}
+              <AnchorLink href={"#about"}  offset={() => 10}><span>About</span></AnchorLink>
+            </li>
+            <li className="header-navMenu-item">
+              <AnchorLink href={"#skill"}  offset={() => 10}><span>Skill</span></AnchorLink>
+            </li>
+            <li className="header-navMenu-item">
+              <AnchorLink href={"#contact"}  offset={() => 10}><span>Contact</span></AnchorLink>
             </li>
           </ul>
         </div>
