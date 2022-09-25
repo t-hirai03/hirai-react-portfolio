@@ -1,31 +1,15 @@
 import "../assets/scss/components/mv.scss";
 import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 function App() {
-  // gsap.registerPlugin(ScrollTrigger);
   const div = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    gsap.fromTo(
-      ".mv-leftUp_text",
-      2,
-      { y: 1000, scale: 0, opacity: 0, autoAlpha: 0 },
-      {
-        y: 0,
-        autoAlpha: 1,
-        scale: 1,
-        duration: 1.5,
-        opacity: 1,
-        stagger: 0.5,
-      }
-    );
 
     // 文字のアニメーション
     for (let i = 0; i < 2; i++) {
-      console.log(i);
       const titleElement = document.querySelector(".mv-title_" + i),
         titleTexts = titleElement!.textContent!.split("");
 
@@ -73,7 +57,7 @@ function App() {
   }, []);
 
   const particlesLoaded = useCallback(async (container: any) => {
-    await console.log(container);
+    // await console.log(container);
   }, []);
 
   return (
@@ -207,12 +191,6 @@ function App() {
       <div className="mv-leftUp">
         <h1 className="mv-title_0">HIRAI TAKAHIRO</h1>
         <h1 className="mv-title_1">PORTFOLIO</h1>
-        {/* <div className="mv-leftUp_text">
-          <span>HIRAI TAKAHIRO</span>
-        </div>
-        <div className="mv-leftUp_text">
-          <span>PORTFOLIO</span>
-        </div> */}
       </div>
     </div>
   );
