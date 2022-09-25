@@ -70,6 +70,7 @@ function Top() {
         y: 0,
         duration: 1,
         opacity: 1,
+        stagger: 0.8,
         scrollTrigger: {
           trigger: ".fadeIn-section",
           start: "top center",
@@ -102,7 +103,7 @@ function Top() {
       </section>
       <section id="about" className="top-section about-section">
         <div className="ly_inner">
-          <h2 className="top-contents_title">About</h2>
+          <h2 className="top-contents_title fadeIn-about">About</h2>
           <div className="top-about">
             <div className="top-about_image fadeIn-about">
               <img src={hiraiFaceImage} alt="平井 隆裕" />
@@ -153,7 +154,7 @@ function Top() {
       </section>
       <section className="top-section skill-section">
         <div className="ly_inner">
-          <h2 className="top-contents_title">My skill set</h2>
+          <h2 className="top-contents_title fadeIn-skill">My skill set</h2>
           <div className="fadeIn-skill">
             <p className="top-skill_text">
               業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
@@ -276,7 +277,7 @@ function Top() {
       </section>
       <section className="top-section fadeIn-section">
         <div className="ly_inner">
-          <h2 className="top-contents_title">Contact me</h2>
+          <h2 className="top-contents_title fadeIn-contact">Contact me</h2>
           <div className="top-contact fadeIn-contact">
             <p>
               最後までご覧いただきありがとうございました。
