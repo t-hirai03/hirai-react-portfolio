@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./assets/scss/index.scss";
 import HeaderSection from "./components/header";
 import Top from "./page/top";
-// import FooterSection from "./components/footer";
+import Loading from "./components/loading";
 import reportWebVitals from "./reportWebVitals";
 import "ress";
 import "sanitize.css";
@@ -11,13 +11,14 @@ import "sanitize.css";
 import React, { useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useIntersect, Image, ScrollControls, Scroll } from "@react-three/drei";
-import { animateScroll as scroll } from 'react-scroll'
+import { animateScroll as scroll } from "react-scroll";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    {/* <Loading /> */}
     {/* ヘッダー */}
     <HeaderSection />
     {/* コンテンツ */}
