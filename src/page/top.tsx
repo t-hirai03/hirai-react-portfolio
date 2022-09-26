@@ -172,7 +172,7 @@ function Top() {
               <div className="top-chart_contents">
                 <Charts
                   titleLabel={"font-end"}
-                  Label01={"HTML/CSS"}
+                  Label01={"HTML/CSS(scss)"}
                   data01={3}
                   Label02={"JavaScript"}
                   data02={3}
