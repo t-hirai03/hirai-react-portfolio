@@ -158,9 +158,11 @@
     color: #424242;
     font-weight: 400;
     font-family: 'Capriola', "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+    overflow: hidden;
 
     @include MQ(md) {
       font-size: 2rem;
+      margin: 1.3rem 0 1.3rem 0;
     }
   }
 
@@ -182,13 +184,23 @@
     img {
       width: 100%;
       max-width: 300px;
-      box-shadow: -1.875rem 1.875rem 0 $darkBlueColor;
+      box-shadow: -1.875rem 1.875rem 0 #C7B897;
+
+      @include MQ(md) {
+        max-width: 210px;
+        box-shadow: -1.25rem 1.25rem 0 #C7B897;
+      }
     }
   }
 
   &-about_text {
     margin-top: 30px;
     margin-bottom: 30px;
+
+    @include MQ(md) {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
   }
 
   &-about_item {
@@ -197,8 +209,9 @@
     background-color: $themeColor;
 
     @include MQ(md) {
-      margin-top: 50px;
+      margin-top: 35px;
       width: 100%;
+      padding: 0.5rem;
     }
   }
 
@@ -209,6 +222,10 @@
 
     img {
       width: 40px;
+
+      @include MQ(md) {
+        width: 35px;
+      }
     }
   }
 
@@ -227,9 +244,25 @@
     margin-top: 15px;
     margin-bottom: 15px;
 
-    @include MQ(cont) {
-      display: flex;
-      justify-content: space-around;
+    &_pc {
+      @include MQ(cont) {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      @include MQ(md) {
+        display: none;
+      }
+    }
+
+    &_sp {
+      @include MQ(cont) {
+        display: none;
+      }
+
+      @include MQ(md) {
+        display: block;
+      }
     }
 
     &_contents {
@@ -241,7 +274,6 @@
 
   &-skill_text {
     margin-bottom: 15px;
-    line-height: 2rem;
   }
 
   &-contact {
@@ -274,17 +306,21 @@
   }
 }
 
-// @media (prefers-reduced-motion: no-preference) {
-//   .top-logo {
-//     animation: top-logo-spin infinite 20s linear;
-//   }
-// }
+.swiper {
+  &-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 
-// @keyframes top-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }
+  &-slide {
+    width: 270px !important;
+    border: solid 1px #004C71;
+    border-radius: 20px;
+    background-color: #ffffff;
+  }
+
+  &-pagination {
+    bottom: -1px !important;
+  }
+}

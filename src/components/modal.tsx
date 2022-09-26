@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/scss/components/modal.scss";
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import ReactModal from "react-modal";
 import modalCloseIcon from "../assets/image/components/modal/modal-close.svg";
 
@@ -13,7 +13,7 @@ type Props = {
 const modalStyle = {
   overlay: {
     zIndex: 99999,
-    backgroundColor: "rgba(0,0,0,0.85)",
+    backgroundColor: "rgba(0,0,0,0.49)",
   },
   content: {
     top: "20%",
@@ -25,7 +25,7 @@ const modalStyle = {
     width: "90%",
     minWidth: "40%",
     maxWidth: "600px",
-    padding:"0",
+    padding: "0",
     inset: "40% auto auto 50%",
   },
 };
@@ -37,11 +37,9 @@ export const modal = ({ emailMessage, isModalOpen, closeFunc }: Props) => {
     <Container maxWidth="sm">
       <ReactModal isOpen={isModalOpen} style={modalStyle}>
         <div className="modal-header">
-            <img src={modalCloseIcon} onClick={closeFunc} alt="modalCloseIcon"/>
+          <img src={modalCloseIcon} onClick={closeFunc} alt="modalCloseIcon" />
         </div>
-        <div className="modal-contents">
-          {emailMessage}
-        </div>
+        <div className="modal-contents">{emailMessage}</div>
       </ReactModal>
     </Container>
   );

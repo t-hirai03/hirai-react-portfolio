@@ -69,13 +69,13 @@
     width: 70px;
     height: 70px;
     position: fixed;
-    z-index: 10001;
+    z-index: 9999;
     top: 0;
     right: 0;
     overflow: hidden;
     text-indent: 100%;
     white-space: nowrap;
-    background: #425052;
+    background: $aiColor;
     background-size: auto 100%;
     transition: all .4s ease-in-out;
     cursor: pointer;
@@ -171,6 +171,8 @@
       transition: opacity .3s ease-in;
       text-decoration: none;
       position: relative;
+      color: #425052;
+      font-weight: bold;
 
       &:hover {
         opacity: 0.75;
@@ -240,18 +242,3 @@
     }
   }
 }
-
-// @media (prefers-reduced-motion: no-preference) {
-//   .App-logo {
-//     animation: App-logo-spin infinite 20s linear;
-//   }
-// }
-
-// @keyframes App-logo-spin {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(360deg);
-//   }
-// }

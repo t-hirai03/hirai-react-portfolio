@@ -1,0 +1,89 @@
+@use "../system.scss" as *;
+
+.mv {
+  z-index: 100;
+  height: calc(100vh - 70px);
+  width: 100%;
+  // background-color: #f0efeb;
+  // background-color: #55b1ff;
+  // background-color: #333333;
+  background-color: #C7B897;
+  position: relative;
+
+  @include MQ(md) {
+    height: 100vh;
+  }
+
+  &-leftUp {
+    font-family: sans-serif;
+    text-align: center;
+    display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+    position: relative;
+    // background-color: #424242;
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &_text {
+      font-size: 130px;
+      letter-spacing: -.002em;
+      -webkit-background-clip: text;
+      background-color: #ffffff;
+
+      @include MQ(xl) {
+        font-size: 100px;
+      }
+
+      @include MQ(ipad) {
+        font-size: 80px;
+      }
+
+      @include MQ(md) {
+        font-size: 40px;
+      }
+    }
+
+    h1 {
+      font-size: 70px;
+      @include MQ(md) {
+        font-size: 35px;
+      }
+    }
+  }
+
+  // &-radius {
+  //   width: 200px;
+  //   height: 200px;
+  //   // background-color: #424242;
+  //   background-color: #55b1ff;
+  //   border-radius: 50%;
+  // }
+
+  #particles-js {
+    #tsparticles {
+      canvas {
+        @include MQ(cont) {
+          // padding-top: 70px;
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: .1rem;
+  // position: relative;
+
+  span {
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-color: #ffffff;
+  }
+}
