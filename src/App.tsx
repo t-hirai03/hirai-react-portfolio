@@ -6,13 +6,10 @@ import Loading from "./components/loading";
 function App() {
   const [isLoading, setIsLoading] = React.useState(true);
 
-  function loading() {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 2000);
 
-  window.onload = loading;
   return (
     <div>
       {/* ヘッダー */}

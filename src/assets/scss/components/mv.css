@@ -1,0 +1,67 @@
+@charset "UTF-8";
+.mv {
+  z-index: 100;
+  height: calc(100vh - 70px);
+  width: 100%;
+  background-color: #C7B897;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .mv {
+    height: 100vh;
+  }
+}
+.mv-leftUp {
+  font-family: sans-serif;
+  text-align: center;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.mv-leftUp_text {
+  font-size: 130px;
+  letter-spacing: -0.002em;
+  -webkit-background-clip: text;
+  background-color: #ffffff;
+}
+@media (max-width: 1200px) {
+  .mv-leftUp_text {
+    font-size: 100px;
+  }
+}
+@media (max-width: 1024px) {
+  .mv-leftUp_text {
+    font-size: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .mv-leftUp_text {
+    font-size: 40px;
+  }
+}
+.mv-leftUp h1 {
+  font-size: 70px;
+}
+@media (max-width: 767px) {
+  .mv-leftUp h1 {
+    font-size: 35px;
+  }
+}
+h1 {
+  font-size: 50px;
+  letter-spacing: 0.1rem;
+}
+h1 span {
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-color: #ffffff;
+}
+/*# sourceMappingURL=mv.css.map */
