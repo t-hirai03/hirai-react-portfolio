@@ -103,6 +103,7 @@ function Top() {
                       </a>
                     </p>
                   </div>
+                  <div className="icon icon-git"></div>
                   <p className="top-about_text">
                     はじめまして。平井と申します。
                     <br />
