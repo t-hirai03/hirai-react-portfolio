@@ -1,0 +1,16 @@
+@use "../system.scss" as *;
+
+.revolvingDotLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #282c34;
+    transition: 0.4s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    opacity: 0.9;
+}

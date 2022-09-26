@@ -15,10 +15,10 @@ function GitSVG() {
         }
         octo_arm.addEventListener('animationend', removeStyles)
         return () => octo_arm.removeEventListener('animationend', removeStyles)
-    }, [])
+    }, []);
 
     return (
-        <div>
+        <span>
             <svg
                 width="70"
                 height="70"
@@ -45,7 +45,7 @@ function GitSVG() {
                         fill="currentColor"></path>
                 </g>
             </svg>
-        </div>
+        </span>
     )
 }
 
