@@ -20,12 +20,13 @@ const App = () => {
       {/* <RevolvingDotLoading /> */}
       {/* <AudioLoading /> */}
       {/* {isRevolvingDotLoading && <RevolvingDotLoading />} */}
-      {isRevolvingDotLoading && <AudioLoading />}
+      {isRevolvingDotLoading && <RevolvingDotLoading />}
       {/* ヘッダー */}
       <HeaderSection />
       {/* コンテンツ */}
       {isLoading ? (
         <AudioLoading />
+        // <RevolvingDotLoading />
       ) : (
         <div className="index-contents">
           <Top />
