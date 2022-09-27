@@ -14,7 +14,7 @@ type Props = {
 export const modal = ({ emailMessage, isModalOpen, closeFunc }: Props) => {
   return (
     <Container maxWidth="sm">
-      <Modal show={isModalOpen} onHide={closeFunc}>
+      <Modal show={isModalOpen} onHide={closeFunc} centered>
         <Modal.Header closeButton>
           <Modal.Title>Contact me</Modal.Title>
         </Modal.Header>

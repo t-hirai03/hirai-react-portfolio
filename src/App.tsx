@@ -17,16 +17,12 @@ const App = () => {
 
   return (
     <div>
-      {/* <RevolvingDotLoading /> */}
-      {/* <AudioLoading /> */}
-      {/* {isRevolvingDotLoading && <RevolvingDotLoading />} */}
       {isRevolvingDotLoading && <RevolvingDotLoading />}
       {/* ヘッダー */}
       <HeaderSection />
       {/* コンテンツ */}
       {isLoading ? (
         <AudioLoading />
-        // <RevolvingDotLoading />
       ) : (
         <div className="index-contents">
           <Top />
