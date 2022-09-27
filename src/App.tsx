@@ -19,7 +19,8 @@ const App = () => {
     <div>
       {/* <RevolvingDotLoading /> */}
       {/* <AudioLoading /> */}
-      {isRevolvingDotLoading && <RevolvingDotLoading />}
+      {/* {isRevolvingDotLoading && <RevolvingDotLoading />} */}
+      {isRevolvingDotLoading && <AudioLoading />}
       {/* ヘッダー */}
       <HeaderSection />
       {/* コンテンツ */}

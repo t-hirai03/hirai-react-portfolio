@@ -1,7 +1,7 @@
 @use "../system.scss" as *;
 
 .modal {
-    z-index: 99999;
+    z-index: 99999 !important;
     &-header {
         height: 50px;
         text-align: right;
