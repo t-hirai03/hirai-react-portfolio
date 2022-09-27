@@ -17,6 +17,8 @@ const App = () => {
 
   return (
     <div>
+      {/* <RevolvingDotLoading /> */}
+      {/* <AudioLoading /> */}
       {isRevolvingDotLoading && <RevolvingDotLoading />}
       {/* ヘッダー */}
       <HeaderSection />
