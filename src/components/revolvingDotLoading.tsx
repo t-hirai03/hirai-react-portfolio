@@ -1,6 +1,6 @@
 import React from "react";
 import { RevolvingDot, Audio } from "react-loader-spinner";
-import "../assets/scss/components/loading.scss";
+import "../assets/scss/components/revolvingDotLoading.scss";
 
 function Loading() {
   return (
@@ -8,10 +8,8 @@ function Loading() {
     //   height="100"
     //   width="100"
     //   color="#61dafb"
-    //   secondaryColor=""
     //   ariaLabel="revolving-dot-loading"
-    //   wrapperStyle={{}}
-    //   wrapperClass="loading"
+    //   wrapperClass="revolvingDotLoading"
     //   visible={true}
     // />
     <Audio
@@ -20,7 +18,7 @@ function Loading() {
       color="#61dafb"
       ariaLabel="revolving-dot-loading"
       wrapperStyle={{}}
-      wrapperClass="loading"
+      wrapperClass="revolvingDotLoading"
       visible={true}
     />
   );

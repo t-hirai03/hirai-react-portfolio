@@ -1,0 +1,8 @@
+@use "../system.scss" as *;
+
+.gitHubIcon{
+    @include MQ(md) {
+        height: 60px;
+        width: 60px;
+      }
+}

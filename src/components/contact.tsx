@@ -4,7 +4,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import emailjs from "emailjs-com";
 import "../assets/scss/components/contact.scss";
-import ReactModal from "./modal";
+import Modal from "./modal";
+import { useDispatch } from 'react-redux'
+import { decrement, increment } from '../store/reducer'
 
 type Inputs = {
   name: string;
@@ -13,6 +15,8 @@ type Inputs = {
 };
 
 export const Demo = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -22,6 +26,7 @@ export const Demo = () => {
 
   // EmailJSでメール送信処理を行う
   const sendEmail: SubmitHandler<Inputs> = (formData) => {
+    openLoading();
     emailjs
       .send(
         "service_q33y4rh",
@@ -32,13 +37,21 @@ export const Demo = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setModalMessage("メールを送信しました。");
+          // モーダルに表示するメッセージ
+          setModalMessage("ありがとうございます。メッセージは送信されました。");
+          // モーダル表示
           setIsOpen(true);
+          // ローディング解除
+          closeLoading();
         },
         (error) => {
           console.log(error.text);
+          // モーダルに表示するメッセージ
           setModalMessage("メール送信できませんでした。");
+          // モーダル表示
           setIsOpen(true);
+          // ローディング解除
+          closeLoading();
         }
       );
     reset();
@@ -49,9 +62,17 @@ export const Demo = () => {
   // モーダルに表示するメッセージ変数
   const [modalMessage, setModalMessage] = React.useState("");
 
+  const openLoading = () => {
+    dispatch(increment(React.useState))
+  }
+
+  const closeLoading = () => {
+    dispatch(decrement(React.useState))
+  }
+
   return (
     <div>
-      <ReactModal
+      <Modal
         isModalOpen={modalIsOpen}
         emailMessage={modalMessage}
         closeFunc={() => setIsOpen(false)}
