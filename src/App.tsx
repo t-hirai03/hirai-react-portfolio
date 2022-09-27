@@ -2,22 +2,22 @@ import React from "react";
 import HeaderSection from "./components/header";
 import Top from "./page/top";
 import AudioLoading from "./components/audioLoading";
-// import { useSelector } from "./store/store";
-// import { Provider } from "react-redux";
-// import RevolvingDotLoading from "./components/revolvingDotLoading";
+import RevolvingDotLoading from "./components/revolvingDotLoading";
+import { useSelector } from 'react-redux'
+import { selectCount } from './store/reducer'
 
-function App() {
+const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   setTimeout(() => {
     setIsLoading(false);
   }, 2000);
 
-  // const count = useSelector((state) => state.counter.count);
+  const isRevolvingDotLoading = useSelector(selectCount);
 
   return (
     <div>
-      {/* <h1>Count: {count}</h1> */}
+      {isRevolvingDotLoading && <RevolvingDotLoading />}
       {/* ヘッダー */}
       <HeaderSection />
       {/* コンテンツ */}
