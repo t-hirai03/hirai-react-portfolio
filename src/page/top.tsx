@@ -13,7 +13,6 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import RevolvingDotLoading from "../components/revolvingDotLoading";
 
 function Top() {
   gsap.registerPlugin(ScrollTrigger);
