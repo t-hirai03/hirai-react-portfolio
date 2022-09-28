@@ -13,7 +13,6 @@ import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import DrawCanvas from "../components/drawCanvas";
 
 function Top() {
   gsap.registerPlugin(ScrollTrigger);
