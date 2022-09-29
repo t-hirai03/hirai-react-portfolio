@@ -5,8 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "ress";
 import "sanitize.css";
-import { Provider } from 'react-redux'
-import store from './store/store';
+import { Provider } from "react-redux";
+import store from "./store/store";
+import CanvasTest from "./components/canvasTest"
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,7 +18,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {/* <App /> */}
+      <CanvasTest />
     </Provider>
   </React.StrictMode>
 );
