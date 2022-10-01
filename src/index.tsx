@@ -7,7 +7,6 @@ import "ress";
 import "sanitize.css";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import CanvasTest from "./components/canvasTest"
 
 
 
@@ -18,8 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <App /> */}
-      <CanvasTest />
+      <App />
     </Provider>
   </React.StrictMode>
 );
