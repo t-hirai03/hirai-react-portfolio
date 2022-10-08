@@ -1,4 +1,4 @@
-import React, { useEffect, VFC } from 'react';
+import React, { useEffect } from 'react';
 import { css, keyframes } from '@emotion/css';
 import "../assets/scss/components/gitHubIcon.scss";
 
