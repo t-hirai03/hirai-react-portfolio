@@ -51,39 +51,69 @@
 
     h1 {
       font-size: 70px;
+
       @include MQ(md) {
         font-size: 35px;
       }
     }
   }
 
-  // &-radius {
-  //   width: 200px;
-  //   height: 200px;
-  //   // background-color: #424242;
-  //   background-color: #55b1ff;
-  //   border-radius: 50%;
-  // }
+  &-scrolldown {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    height: 110px;
 
-  #particles-js {
-    #tsparticles {
-      canvas {
-        @include MQ(cont) {
-          // padding-top: 70px;
-        }
+    span {
+      position: absolute;
+      left: -25px;
+      top: -32px;
+      /*テキストの形状*/
+      color: #eee;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 30px;
+      background: #eee;
+      animation: pathmove 1.4s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes pathmove {
+      0% {
+        height: 0;
+        top: 0;
+        opacity: 0;
+      }
+
+      30% {
+        height: 30px;
+        opacity: 1;
+      }
+
+      100% {
+        height: 0;
+        top: 50px;
+        opacity: 0;
       }
     }
   }
-}
 
-h1 {
-  font-size: 50px;
-  letter-spacing: .1rem;
-  // position: relative;
+  h1 {
+    font-size: 50px;
+    letter-spacing: .1rem;
 
-  span {
-    display: inline-block;
-    -webkit-background-clip: text;
-    background-color: #ffffff;
+    span {
+      display: inline-block;
+      -webkit-background-clip: text;
+      background-color: #ffffff;
+    }
   }
 }

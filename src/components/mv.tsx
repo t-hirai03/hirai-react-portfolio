@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function App() {
   const div = useRef<HTMLDivElement>(null);
@@ -192,6 +193,7 @@ function App() {
         <h1 className="mv-title_0">HIRAI TAKAHIRO</h1>
         <h1 className="mv-title_1">PORTFOLIO</h1>
       </div>
+      <AnchorLink href={"#about"}  offset={() => 0} className="mv-scrolldown"><span>Scroll</span></AnchorLink>
     </div>
   );
 }
