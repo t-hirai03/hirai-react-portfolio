@@ -45,7 +45,7 @@ function header() {
   let day = now.getDate();
 
   return (
-    <header>
+    <header id="header">
       <div className="header-bar" id="header-bar">
         {/* 日付 */}
         <div className="ly_inner header-inner">
@@ -62,13 +62,10 @@ function header() {
         <div className="header-navMenu">
           <ul className="header-navMenu-list">
             <li className="header-navMenu-item" onClick={expandMenu}>
-              <AnchorLink href={"#about"}  offset={() => 0}><span>About</span></AnchorLink>
+              <AnchorLink href={"#header"}  offset={() => 0}><span>Top</span></AnchorLink>
             </li>
             <li className="header-navMenu-item" onClick={expandMenu}>
-              <AnchorLink href={"#skill"}  offset={() => 0}><span>Skill</span></AnchorLink>
-            </li>
-            <li className="header-navMenu-item" onClick={expandMenu}>
-              <AnchorLink href={"#contact"}  offset={() => 0}><span>Contact</span></AnchorLink>
+              <a href="http://hirai.website/gallery/" target="_blank" rel="noreferrer"><span>Gallery</span></a>
             </li>
           </ul>
         </div>
