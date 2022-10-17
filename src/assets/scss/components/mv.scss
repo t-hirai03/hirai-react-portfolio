@@ -66,8 +66,9 @@
 
     span {
       position: absolute;
-      left: -25px;
+      left: -30px;
       top: -32px;
+      font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
       /*テキストの形状*/
       color: #eee;
       font-size: 1.3rem;
@@ -107,8 +108,8 @@
   }
 
   h1 {
-    font-size: 50px;
     letter-spacing: .1rem;
+    font-weight: bold;
 
     span {
       display: inline-block;
