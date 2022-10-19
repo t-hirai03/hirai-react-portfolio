@@ -23,9 +23,6 @@ export const modal = ({ emailMessage, isModalOpen, closeFunc }: Props) => {
           <Button variant="secondary" onClick={closeFunc}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={closeFunc}>
-            Save Changes
-          </Button> */}
         </Modal.Footer>
       </Modal>
     </Container>
