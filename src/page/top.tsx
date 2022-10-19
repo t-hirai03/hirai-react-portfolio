@@ -52,7 +52,7 @@ function Top() {
         scrollTrigger: {
           trigger: ".skill-section",
           start: "top center",
-          end: "center 300px",
+          end: "center 1.171875rem",
         },
       }
     );
@@ -72,7 +72,7 @@ function Top() {
         scrollTrigger: {
           trigger: ".fadeIn-section",
           start: "top center",
-          end: "center 300px",
+          end: "center 1.171875rem",
         },
       }
     );
@@ -80,7 +80,6 @@ function Top() {
 
   return (
     <div className="top ly_main">
-      {/* <RevolvingDotLoading /> */}
       <section id="mv">
         <Mv />
       </section>
