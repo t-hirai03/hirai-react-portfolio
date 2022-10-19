@@ -5,8 +5,8 @@
 }
 
 .ly_main {
-  padding-top: 70px;
-  min-height: calc(100vh - 70px);
+  padding-top: rem(70);
+  min-height: calc(100vh - rem(70));
 
   @include MQ(md) {
     padding-top: 0;

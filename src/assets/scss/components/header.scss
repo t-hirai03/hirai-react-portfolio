@@ -10,26 +10,26 @@
     left: 0;
 
     width: 100%;
-    height: 70px;
+    height: rem(70);
     background-color: $baseColor;
     opacity: 0.95;
     transition: all .4s ease-in;
 
     @include MQ(cont) {
-      border-bottom: solid 1px $borderColor;
+      border-bottom: solid rem(1) $borderColor;
     }
 
     @include MQ(md) {
-      height: 0px;
-      top: -60px;
+      height: 0;
+      top: rem(-60);
     }
   }
 
   &-bar_active {
     @include MQ(md) {
-      height: 60px;
+      height: rem(60);
       top: 0;
-      border-bottom: solid 1px $borderColor;
+      border-bottom: solid rem(1) $borderColor;
     }
   }
 
@@ -39,35 +39,35 @@
   }
 
   &-date {
-    height: 70px;
+    height: rem(70);
     display: flex;
     align-items: center;
     top: 0;
-    right: 84px;
-    padding-left: 12px;
+    right: rem(84);
+    padding-left: rem(12);
     position: static;
 
     @include MQ(md) {
-      height: 60px;
+      height: rem(60);
     }
   }
 
   &-year {
-    font-size: 25px;
+    font-size: rem(25);;
   }
 
   &-month_day {
-    font-size: 48px;
-    margin-left: 6px;
+    font-size: rem(48);
+    margin-left: rem(6);
 
     @include MQ(md) {
-      font-size: 25px;
+      font-size: rem(25);
     }
   }
 
   &-hamburgerMenu {
-    width: 70px;
-    height: 70px;
+    width: rem(70);
+    height: rem(70);
     position: fixed;
     z-index: 9999;
     top: 0;
@@ -81,63 +81,62 @@
     cursor: pointer;
 
     @include MQ(md) {
-      width: 60px;
-      height: 60px;
+      width: rem(60);
+      height: rem(60);
     }
 
     &:before {
       position: absolute;
-      width: 22px;
-      height: 2px;
-      background: #fff;
+      width: rem(22);
+      height: rem(2);
+      background: $baseColor;
       transition: all .4s ease-in-out;
       content: '';
-      top: 26px;
-      right: 23px;
+      top: rem(26);
+      right: rem(23);
 
       @include MQ(md) {
-        top: 20px;
-        right: 18px;
+        top: rem(20);
+        right: rem(18);
       }
     }
 
     span {
       position: absolute;
-      width: 22px;
-      height: 2px;
-      background: #fff;
+      width: rem(22);
+      height: rem(2);
+      background: $baseColor;
       transition: all .4s ease-in-out;
-      top: 34px;
-      right: 23px;
+      top: rem(34);
+      right: rem(23);
 
       @include MQ(md) {
-        top: 28px;
-        right: 18px;
+        top: rem(28);
+        right: rem(18);
       }
     }
 
     &:after {
       position: absolute;
-      width: 22px;
-      height: 2px;
-      background: #fff;
+      width: rem(22);
+      height: rem(2);
+      background: $baseColor;
       transition: all .4s ease-in-out;
       content: '';
-      top: 42px;
-      right: 23px;
+      top: rem(42);
+      right: rem(23);
 
       @include MQ(md) {
-        top: 36px;
-        right: 18px;
+        top: rem(36);
+        right: rem(18);
       }
     }
   }
 
   &-nav {
-    // position: absolute;
     position: fixed;
     z-index: 140;
-    top: -1000px;
+    top: rem(-1000);
     left: 0;
     width: 100%;
     transition: all .4s ease-in-out;
@@ -147,24 +146,24 @@
   }
 
   &-navMenu {
-    background: rgba(215, 233, 236, 0.95);
-    padding: 15px 0 40px;
+    background: $darkBlueColor;
+    padding: rem(15) 0 rem(40);
   }
 
   &-navMenu-list {
-    width: 415px;
+    width: rem(415);
     margin: 0 auto;
 
     @include MQ(md) {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: rem(10);
+      padding-right: rem(10);
       width: 100%;
     }
 
     a {
-      height: 70px;
+      height: rem(70);
       display: block;
-      border-bottom: 1px dotted #7F7F7F;
+      border-bottom: rem(1) dotted #7F7F7F;
       background-size: 100% auto;
       overflow: hidden;
       white-space: nowrap;
@@ -199,20 +198,20 @@
   }
 
   &-hide {
-    top: -70px;
+    top: rem(-70);
   }
 
   &-hamburgerMenu_active {
     &:before {
-      top: 33px;
-      right: 21px;
-      width: 27px;
+      top: rem(33);
+      right: rem(21);
+      width: rem(27);
       transform: rotate(-135deg);
 
       @include MQ(md) {
-        top: 28px;
-        right: 15px;
-        width: 27px;
+        top: rem(28);
+        right: rem(15);
+        width: rem(27);
       }
     }
 
@@ -221,24 +220,24 @@
     }
 
     &:after {
-      top: 33px;
-      right: 21px;
-      width: 27px;
+      top: rem(33);
+      right: rem(21);
+      width: rem(27);
       transform: rotate(135deg);
 
       @include MQ(md) {
-        top: 28px;
-        right: 15px;
-        width: 27px;
+        top: rem(28);
+        right: rem(15);
+        width: rem(27);
       }
     }
   }
 
   &-navMenu_active {
-    top: 70px;
+    top: rem(70);
 
     @include MQ(md) {
-      top: 60px;
+      top: rem(60);
     }
   }
 }

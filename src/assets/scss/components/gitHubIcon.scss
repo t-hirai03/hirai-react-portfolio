@@ -2,7 +2,7 @@
 
 .gitHubIcon{
     @include MQ(md) {
-        height: 60px;
-        width: 60px;
+        height: rem(60);
+        width: rem(60);
       }
 }

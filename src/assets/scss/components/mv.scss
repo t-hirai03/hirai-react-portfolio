@@ -2,19 +2,19 @@
 
 .mv {
   z-index: 100;
-  height: calc(100vh - 70px);
+  height: calc(100vh - rem(70));
   width: 100%;
   // background-color: #f0efeb;
   // background-color: #55b1ff;
-  // background-color: #333333;
-  background-color: #C7B897;
+  background-color: #333333;
+  // background-color: #C7B897;
   position: relative;
 
   @include MQ(md) {
     height: 100vh;
   }
 
-  &-leftUp {
+  &-title {
     font-family: sans-serif;
     text-align: center;
     display: inline-block;
@@ -22,38 +22,18 @@
     -webkit-text-fill-color: transparent;
     font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
     position: relative;
-    // background-color: #424242;
-    background-color: #ffffff;
+    background-color: $baseColor;
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    &_text {
-      font-size: 130px;
-      letter-spacing: -.002em;
-      -webkit-background-clip: text;
-      background-color: #ffffff;
-
-      @include MQ(xl) {
-        font-size: 100px;
-      }
-
-      @include MQ(ipad) {
-        font-size: 80px;
-      }
-
-      @include MQ(md) {
-        font-size: 40px;
-      }
-    }
-
     h1 {
-      font-size: 70px;
+      font-size: rem(70);
 
       @include MQ(md) {
-        font-size: 35px;
+        font-size: rem(35);
       }
     }
   }
@@ -61,17 +41,17 @@
   &-scrolldown {
     position: absolute;
     left: 50%;
-    bottom: 10px;
-    height: 110px;
+    bottom: rem(10);
+    height: rem(110);
 
     span {
       position: absolute;
-      left: -30px;
-      top: -32px;
+      left: rem(-30);
+      top: rem(-32);
       font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
       /*テキストの形状*/
-      color: #eee;
-      font-size: 1.3rem;
+      color: $baseColor;
+      font-size: rem(20);
       letter-spacing: 0.05em;
       font-weight: bold;
     }
@@ -80,9 +60,9 @@
       content: "";
       position: absolute;
       top: 0;
-      width: 2px;
-      height: 30px;
-      background: #eee;
+      width: rem(2);
+      height: rem(30);
+      background: $baseColor;
       animation: pathmove 1.4s ease-in-out infinite;
       opacity: 0;
     }
@@ -95,13 +75,13 @@
       }
 
       30% {
-        height: 30px;
+        height: rem(30);
         opacity: 1;
       }
 
       100% {
         height: 0;
-        top: 50px;
+        top: rem(50);
         opacity: 0;
       }
     }

@@ -6,18 +6,11 @@
         z-index: 99999 !important;
     }
     &-header {
-        height: 50px;
+        height: rem(50);
         text-align: right;
-
-        img {
-            height: 35px;
-            cursor: pointer;
-            padding-top: 5px;
-            padding-right: 5px;
-        }
     }
 
     &-contents {
-        padding: 20px;
+        padding: rem(20);
     }
 }
