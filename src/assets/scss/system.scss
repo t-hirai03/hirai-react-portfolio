@@ -4,7 +4,7 @@ $breakpoint: 767;
 $contSpaceValue: 25;
 $innerContWidthValue: 1200;
 $contWidthValue: $innerContWidthValue + $contSpaceValue * 2;
-$contWidth: $contWidthValue + px;
+$contWidth: $contWidthValue;
 
 // Color
 // -------------------------------------------------------------------
@@ -46,13 +46,21 @@ $breakpoints: (
 // Layouts
 // -------------------------------------------------------------------
 @mixin contentCentering(){
-  max-width: $contWidth;
-  padding-right: $contSpaceValue + px;
-  padding-left: $contSpaceValue + px;
+  max-width: rem($contWidth);
+  padding-right: rem($contSpaceValue);
+  padding-left: rem($contSpaceValue);
   margin-right: auto;
   margin-left: auto;
   width: 100%;
   @include MQ(md) {
     max-width: 100%;
   }
+}
+
+// ---------------------
+// font-size
+// -------------------------------------------------------------------
+$baseFontSize: 16;
+@function rem($px) {
+  @return ($px / $baseFontSize) * 1rem;
 }

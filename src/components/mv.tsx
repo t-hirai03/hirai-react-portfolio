@@ -183,13 +183,13 @@ function App() {
             retina_detect: true,
             style: {
               width: "100%",
-              height: "calc(100vh - 70px)",
+              height: "calc(100vh - 4.375rem)",
               position: "unset",
             },
           }}
         />
       </div>
-      <div className="mv-leftUp">
+      <div className="mv-title">
         <h1 className="mv-title_0">HIRAI TAKAHIRO</h1>
         <h1 className="mv-title_1">PORTFOLIO</h1>
       </div>

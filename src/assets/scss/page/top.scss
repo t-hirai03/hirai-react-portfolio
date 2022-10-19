@@ -14,7 +14,7 @@
 
   &-contents_title {
     text-align: center;
-    font-size: 3.56rem;
+    font-size: rem(56);
     line-height: 110%;
     margin: 1.78rem 0 1.424rem 0;
     color: #424242;
@@ -23,7 +23,7 @@
     overflow: hidden;
 
     @include MQ(md) {
-      font-size: 2rem;
+      font-size: rem(36);
       margin: 1.3rem 0 1.3rem 0;
     }
   }
@@ -45,23 +45,23 @@
 
     img {
       width: 100%;
-      max-width: 300px;
+      max-width: rem(300);
       box-shadow: -1.875rem 1.875rem 0 #C7B897;
 
       @include MQ(md) {
-        max-width: 210px;
+        max-width: rem(210);
         box-shadow: -1.25rem 1.25rem 0 #C7B897;
       }
     }
   }
 
   &-about_text {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: rem(30);
+    margin-bottom: rem(30);
 
     @include MQ(md) {
-      margin-top: 15px;
-      margin-bottom: 15px;
+      margin-top: rem(15);
+      margin-bottom: rem(15);
     }
   }
 
@@ -71,7 +71,7 @@
     background-color: $themeColor;
 
     @include MQ(md) {
-      margin-top: 35px;
+      margin-top: rem(35);
       width: 100%;
       padding: 0.5rem;
     }
@@ -83,10 +83,10 @@
     align-items: center;
 
     img {
-      width: 40px;
+      width: rem(40);
 
       @include MQ(md) {
-        width: 35px;
+        width: rem(35);
       }
     }
   }
@@ -97,14 +97,14 @@
 
     dt {
       font-weight: normal;
-      min-width: 90px;
+      min-width: rem(90);
     }
   }
 
   // chart
   &-chart {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: rem(15);
+    margin-bottom: rem(15);
 
     &_pc {
       @include MQ(cont) {
@@ -135,54 +135,34 @@
   }
 
   &-skill_text {
-    margin-bottom: 15px;
+    margin-bottom: rem(15);
   }
 
   &-contact {
-    max-width: 785px;
+    max-width: rem(785);
     margin: 0 auto;
 
     p {
-      margin-bottom: 15px;
+      margin-bottom: rem(15);
     }
-  }
-}
-
-@-webkit-keyframes bgroop {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 2000px 0;
-  }
-}
-
-@keyframes bgroop {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 2000px 0;
   }
 }
 
 .swiper {
   &-container {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: rem(50);
+    padding-bottom: rem(50);
   }
 
   &-slide {
-    width: 270px !important;
-    border: solid 1px #004C71;
-    border-radius: 20px;
+    width: rem(270) !important;
+    border: solid rem(1) $aiColor;
+    border-radius: rem(20);
     background-color: #ffffff;
   }
 
   &-pagination {
-    bottom: -1px !important;
+    bottom: rem(-1) !important;
   }
 }
