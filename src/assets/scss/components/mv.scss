@@ -20,7 +20,7 @@
     display: inline-block;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+    font-family: $font-hiragino;
     position: relative;
     background-color: $baseColor;
     width: 100%;
@@ -48,7 +48,7 @@
       position: absolute;
       left: rem(-30);
       top: rem(-32);
-      font-family: "Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+      font-family: $font-hiragino;
       /*テキストの形状*/
       color: $baseColor;
       font-size: rem(20);

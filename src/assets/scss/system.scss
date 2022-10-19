@@ -17,6 +17,8 @@ $borderColor:#d4d7d3;
 $lightBlueColor:#DCF4F8;
 $darkBlueColor:rgba(215, 233, 236, 0.95);
 $aiColor:#004C71;
+$linkColor:#425052;
+$titleColor:#424242;
 
 // responsive system
 // ---------------------
@@ -64,3 +66,8 @@ $baseFontSize: 16;
 @function rem($px) {
   @return ($px / $baseFontSize) * 1rem;
 }
+
+// ---------------------
+// font-family
+// -------------------------------------------------------------------
+$font-hiragino:"Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;

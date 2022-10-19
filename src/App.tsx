@@ -1,6 +1,7 @@
 import React from "react";
 import HeaderSection from "./components/header";
 import Top from "./page/top";
+import FooterSection from "./components/footer";
 import AudioLoading from "./components/audioLoading";
 import RevolvingDotLoading from "./components/revolvingDotLoading";
 import { useSelector } from 'react-redux'
@@ -24,8 +25,9 @@ const App = () => {
       {isLoading ? (
         <AudioLoading />
       ) : (
-        <div className="index-contents">
+        <div>
           <Top />
+          <FooterSection />
         </div>
       )}
     </div>

@@ -17,9 +17,9 @@
     font-size: rem(56);
     line-height: 110%;
     margin: 1.78rem 0 1.424rem 0;
-    color: #424242;
+    color: $titleColor;
     font-weight: 400;
-    font-family: 'Capriola', "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+    font-family: $font-hiragino;
     overflow: hidden;
 
     @include MQ(md) {
@@ -98,6 +98,9 @@
     dt {
       font-weight: normal;
       min-width: rem(90);
+      @include MQ(md) {
+        min-width: rem(80);
+      }
     }
   }
 
