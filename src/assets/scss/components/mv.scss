@@ -52,7 +52,7 @@
       /*テキストの形状*/
       color: $baseColor;
       font-size: rem(20);
-      letter-spacing: 0.05em;
+      letter-spacing: rem(0.5);
       font-weight: bold;
     }
 
@@ -88,7 +88,7 @@
   }
 
   h1 {
-    letter-spacing: .1rem;
+    letter-spacing: rem(0.1);
     font-weight: bold;
 
     span {
