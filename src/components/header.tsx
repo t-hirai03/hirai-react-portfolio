@@ -65,7 +65,7 @@ function header() {
               <AnchorLink href={"#header"}  offset={() => 0}><span>Top</span></AnchorLink>
             </li>
             <li className="header-navMenu-item" onClick={expandMenu}>
-              <a href="http://hirai.website/gallery/" target="_blank" rel="noreferrer"><span>Gallery</span></a>
+              <a href="http://hirai.website/gallery/"><span>Gallery</span></a>
             </li>
           </ul>
         </div>
