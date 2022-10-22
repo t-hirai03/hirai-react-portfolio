@@ -48,7 +48,7 @@ function header() {
     <header id="header">
       <div className="header-bar" id="header-bar">
         {/* 日付 */}
-        <div className="ly_inner header-inner">
+        <div className="ly_inner">
           <p className="header-date">
             <span className="header-year">{year}.</span>
             <span className="header-month_day">{month}.{day}</span>
