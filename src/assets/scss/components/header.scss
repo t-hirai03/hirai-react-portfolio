@@ -6,9 +6,6 @@
     position: fixed;
     z-index: 150;
     top: 0;
-    right: 0;
-    left: 0;
-
     width: 100%;
     height: rem(70);
     background-color: $baseColor;
@@ -31,11 +28,6 @@
       top: 0;
       border-bottom: solid rem(1) $borderColor;
     }
-  }
-
-  &-inner {
-    display: flex;
-    justify-content: space-between;
   }
 
   &-date {
@@ -72,11 +64,7 @@
     z-index: 9999;
     top: 0;
     right: 0;
-    overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
     background: $aiColor;
-    background-size: auto 100%;
     transition: all .4s ease-in-out;
     cursor: pointer;
 
