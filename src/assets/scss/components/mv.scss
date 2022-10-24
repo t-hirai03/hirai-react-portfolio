@@ -28,7 +28,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    user-select:none;
+    user-select: none;
 
     h1 {
       font-size: rem(70);
@@ -68,6 +68,13 @@
       opacity: 0;
     }
 
+    &:hover {
+      animation-name: wobble-top;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+    }
+
     @keyframes pathmove {
       0% {
         height: 0;
@@ -84,6 +91,32 @@
         height: 0;
         top: rem(50);
         opacity: 0;
+      }
+    }
+
+    @keyframes wobble-top {
+      16.65% {
+        transform: skew(-12deg);
+      }
+
+      33.3% {
+        transform: skew(10deg);
+      }
+
+      49.95% {
+        transform: skew(-6deg);
+      }
+
+      66.6% {
+        transform: skew(4deg);
+      }
+
+      83.25% {
+        transform: skew(-2deg);
+      }
+
+      100% {
+        transform: skew(0);
       }
     }
   }
