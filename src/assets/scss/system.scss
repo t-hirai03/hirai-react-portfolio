@@ -63,6 +63,7 @@ $breakpoints: (
 // font-size
 // -------------------------------------------------------------------
 $baseFontSize: 16;
+
 @function rem($px) {
   @return ($px / $baseFontSize) * 1rem;
 }
