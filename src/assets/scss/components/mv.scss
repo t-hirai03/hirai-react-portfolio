@@ -68,7 +68,7 @@
       opacity: 0;
     }
 
-    &:hover {
+    @include hover {
       animation-name: wobble-top;
       animation-duration: 1s;
       animation-timing-function: ease-in-out;

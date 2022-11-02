@@ -1,6 +1,7 @@
 @use "system.scss" as *;
 
 html {
+  font-size: $baseFontSize + px;
   overflow-x: hidden;
 }
 
@@ -15,7 +16,9 @@ body {
 }
 
 p {
+  font-size: rem(16);
   line-height: 2rem;
+  
   @include MQ(md) {
     font-size: rem(14);
     line-height: rem(24);

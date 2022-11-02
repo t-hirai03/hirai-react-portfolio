@@ -63,6 +63,7 @@ $breakpoints: (
 // font-size
 // -------------------------------------------------------------------
 $baseFontSize: 16;
+
 @function rem($px) {
   @return ($px / $baseFontSize) * 1rem;
 }
@@ -71,3 +72,14 @@ $baseFontSize: 16;
 // font-family
 // -------------------------------------------------------------------
 $font-hiragino:"Capriola", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+
+// ---------------------
+// hover
+// -------------------------------------------------------------------
+@mixin hover {
+  @media (hover: hover) and (pointer: fine)  {
+    &:hover {
+      @content;
+    }
+  }
+}

@@ -37,7 +37,7 @@
             font-size: rem(14);
         }
 
-        &:hover {
+        @include hover {
             animation-name: pulse;
             animation-duration: 1.5s;
             animation-timing-function: linear;

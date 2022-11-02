@@ -55,7 +55,7 @@
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 rem(2) rem(2) 0 rgb(0 0 0 / 14%), 0 rem(1) rem(5) 0 rgb(0 0 0 / 12%), 0 rem(3) rem(1) -rem(2) rgb(0 0 0 / 20%);
 
-            &:hover {
+            @include hover {
                 opacity: 0.8;
             }
         }
