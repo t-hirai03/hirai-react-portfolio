@@ -3,7 +3,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import emailjs from "emailjs-com";
-import "../assets/scss/components/contact.scss";
+import styles from "../assets/scss/components/contact.module.scss";
 import Modal from "./modal";
 import { useDispatch } from 'react-redux'
 import { decrement, increment } from '../store/reducer'
@@ -77,11 +77,11 @@ export const Demo = () => {
         emailMessage={modalMessage}
         closeFunc={() => setIsOpen(false)}
       />
-      <form className="contact" onSubmit={handleSubmit(sendEmail)}>
-        <div className="contact-input-field">
+      <form className={styles['contact']} onSubmit={handleSubmit(sendEmail)}>
+        <div className={styles['contact-input-field']}>
           <input {...register("name")} placeholder="Name" required />
         </div>
-        <div className="contact-input-field">
+        <div className={styles['contact-input-field']}>
           <input
             {...register("email", {
               required: true,
@@ -96,7 +96,7 @@ export const Demo = () => {
             required
           />
         </div>
-        <div className="contact-input-field">
+        <div className={styles['contact-input-field']} >
           <TextareaAutosize
             {...register("comment")}
             placeholder="Comment"
@@ -104,7 +104,7 @@ export const Demo = () => {
           />
         </div>
         <ErrorMessage errors={errors} name="email" />
-        <div className="contact-btn-field">
+        <div className={styles['contact-btn-field']}>
           <button type="submit">Submit</button>
         </div>
       </form>

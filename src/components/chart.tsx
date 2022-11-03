@@ -1,4 +1,5 @@
 import React from "react";
+import "../assets/scss/components/swiper.scss";
 import {
   Chart as ChartJS,
   RadialLinearScale,
