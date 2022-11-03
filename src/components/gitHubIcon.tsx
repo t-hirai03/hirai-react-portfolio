@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { css, keyframes } from '@emotion/css';
-import "../assets/scss/components/gitHubIcon.scss";
+import gitHubIconStyles from "../assets/scss/components/gitHubIcon.module.scss";
 
 function GitSVG() {
     const hoverHandler = () => {
@@ -31,7 +31,7 @@ function GitSVG() {
                     border: 0,
                     right: 0
                 }}
-                className="gitHubIcon"
+                className={gitHubIconStyles.gitHubIcon}
                 aria-hidden="true">
                 <g className={styles.group} onMouseEnter={hoverHandler}>
                     <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>

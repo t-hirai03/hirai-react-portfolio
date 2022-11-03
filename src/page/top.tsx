@@ -250,7 +250,7 @@ function Top() {
             </div>
           </div>
           <div className="fadeIn-skill">
-            <p className="top-skill_text">
+            <p className={styles['top-skill_text']}>
               チャートの見方としては「1: 軽く使用した程度」、「2:
               実務で数ヶ月以上使用しているがもう少し習熟が必要」、「3:
               実務レベルで自由に駆使できる」という感じです。
@@ -258,10 +258,10 @@ function Top() {
           </div>
         </div>
       </section>
-      <section id="contact" className="top-section fadeIn-section">
+      <section id="contact" className={cx(styles['top-section'],'fadeIn-contact')}>
         <div className="ly_inner">
-          <h2 className="top-contents_title fadeIn-contact">Contact me</h2>
-          <div className="top-contact fadeIn-contact">
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-contact')}>Contact me</h2>
+          <div className={cx(styles['top-contact'],'fadeIn-contact')}>
             <p>
               最後までご覧いただきありがとうございました。
               このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。

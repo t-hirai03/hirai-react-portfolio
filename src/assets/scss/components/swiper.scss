@@ -1,0 +1,20 @@
+@use "../system.scss" as *;
+
+.swiper {
+    &-container {
+        width: 100%;
+        padding-top: rem(50);
+        padding-bottom: rem(50);
+    }
+
+    &-slide {
+        width: rem(270) !important;
+        border: solid rem(1) $aiColor;
+        border-radius: rem(20);
+        background-color: #ffffff;
+    }
+
+    &-pagination {
+        bottom: rem(-1) !important;
+    }
+}

@@ -104,7 +104,7 @@ export const Demo = () => {
           />
         </div>
         <ErrorMessage errors={errors} name="email" />
-        <div className={styles['contact-input-field']}>
+        <div className={styles['contact-btn-field']}>
           <button type="submit">Submit</button>
         </div>
       </form>

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "../assets/scss/components/header.module.scss";
-import "../assets/scss/layout.scss";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function header() {
