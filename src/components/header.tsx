@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/scss/components/header.scss";
+import styles from "../assets/scss/components/header.module.scss";
 import "../assets/scss/layout.scss";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -14,23 +14,23 @@ function header() {
     isExpand = !isExpand;
 
     // ハンバーガーメニューボタンの変更
-    document.getElementById("header-hamburgerMenu")!.classList.toggle("header-hamburgerMenu_active");
+    document.getElementById("header-hamburgerMenu")!.classList.toggle(styles['header-hamburgerMenu_active']);
     // ナビゲーション開閉
-    document.getElementById("header-nav")!.classList.toggle("header-navMenu_active");
+    document.getElementById("header-nav")!.classList.toggle(styles['header-navMenu_active']);
     // ナビゲーション開閉
-    document.getElementById("header-nav_overlay")!.classList.toggle("header-overlay_active");
+    document.getElementById("header-nav_overlay")!.classList.toggle(styles['header-overlay_active']);
 
     if(window.innerWidth <= 768){
-      document.getElementById("header-bar")!.classList.toggle("header-bar_active");
+      document.getElementById("header-bar")!.classList.toggle(styles['header-bar_active']);
     }
   };
 
   // 768pxにしたときにheader-bar_activeクラスを削除する
   function reportWindowSize() {
     if(window.innerWidth >= 768){
-      document.getElementById("header-bar")!.classList.remove("header-bar_active");
+      document.getElementById("header-bar")!.classList.remove(styles['header-bar_active']);
     } else if(window.innerWidth <= 767 && isExpand === true) {
-        document.getElementById("header-bar")!.classList.add("header-bar_active");
+        document.getElementById("header-bar")!.classList.add(styles['header-bar_active']);
     }
   }
   window.onresize = reportWindowSize;
@@ -46,30 +46,30 @@ function header() {
 
   return (
     <header id="header">
-      <div className="header-bar" id="header-bar">
+      <div className={styles['header-bar']} id="header-bar">
         {/* 日付 */}
         <div className="ly_inner">
-          <p className="header-date">
-            <span className="header-year">{year}.</span>
-            <span className="header-month_day">{month}.{day}</span>
+          <p className={styles['header-date']}>
+            <span className={styles['header-year']}>{year}.</span>
+            <span className={styles['header-month_day']}>{month}.{day}</span>
           </p>
         </div>
       </div>
-      <div id="header-hamburgerMenu" className="header-hamburgerMenu" onClick={expandMenu}>
+      <div id="header-hamburgerMenu" className={styles['header-hamburgerMenu']} onClick={expandMenu}>
           <span></span>
         </div>
-      <nav id="header-nav" className="header-nav">
-        <div className="header-navMenu">
-          <ul className="header-navMenu-list">
-            <li className="header-navMenu-item" onClick={expandMenu}>
+      <nav id="header-nav" className={styles['header-nav']}>
+        <div className={styles['header-navMenu']} >
+          <ul className={styles['header-navMenu-list']}>
+            <li className={styles['header-navMenu-item']} onClick={expandMenu}>
               <AnchorLink href={"#header"}  offset={() => 0}><span>Top</span></AnchorLink>
             </li>
-            <li className="header-navMenu-item" onClick={expandMenu}>
+            <li className={styles['header-navMenu-item']} onClick={expandMenu}>
               <a href="http://hirai.website/gallery/"><span>Gallery</span></a>
             </li>
           </ul>
         </div>
-        <div id="header-nav_overlay" className="header-overlay" onClick={expandMenu}></div>
+        <div id="header-nav_overlay" className={styles['header-overlay']} onClick={expandMenu}></div>
       </nav>
     </header>
   );

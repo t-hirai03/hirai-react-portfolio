@@ -1,4 +1,4 @@
-import "../assets/scss/components/mv.scss";
+import styles from "../assets/scss/components/mv.module.scss";
 import React, { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
 import Particles from "react-tsparticles";
@@ -193,7 +193,7 @@ function App() {
   };
 
   return (
-    <div className="mv">
+    <div className={styles['mv']}>
       <div id="particles-js">
         <Particles
           id="tsparticles"
@@ -202,11 +202,11 @@ function App() {
           options={options}
         />
       </div>
-      <div className="mv-title">
-        <h1 className="mv-title_0">HIRAI TAKAHIRO</h1>
-        <h1 className="mv-title_1">PORTFOLIO</h1>
+      <div className={styles['mv-title']}>
+        <h1 className='mv-title_0'>HIRAI TAKAHIRO</h1>
+        <h1 className='mv-title_1'>PORTFOLIO</h1>
       </div>
-      <AnchorLink href={"#about"}  offset={() => 0} className="mv-scrolldown"><span>Scroll</span></AnchorLink>
+      <AnchorLink href={"#about"}  offset={() => 0} className={styles['mv-scrolldown']}><span>Scroll</span></AnchorLink>
     </div>
   );
 }
