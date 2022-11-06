@@ -71,7 +71,7 @@ function Top() {
         opacity: 1,
         stagger: 0.8,
         scrollTrigger: {
-          trigger: ".fadeIn-section",
+          trigger: ".contact-section",
           start: "top center",
           end: "center 1.171875rem",
         },
@@ -258,7 +258,7 @@ function Top() {
           </div>
         </div>
       </section>
-      <section id="contact" className={cx(styles['top-section'],'fadeIn-contact')}>
+      <section id="contact" className={cx(styles['top-section'],'contact-section')}>
         <div className="ly_inner">
           <h2 className={cx(styles['top-contents_title'],'fadeIn-contact')}>Contact me</h2>
           <div className={cx(styles['top-contact'],'fadeIn-contact')}>
