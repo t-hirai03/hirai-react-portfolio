@@ -24,6 +24,8 @@ tsparticles.jsを使用。
 react-chartjs-2を使用。
 ## お問い合わせフォーム
 Email.jsを使用してメール送信処理を実装。
+## インスタグラムの投稿を表示
+インスタグラムのApiを使用して今後実装予定。
 
 # npm scripts
 ### `npm start`
