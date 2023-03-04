@@ -45,7 +45,8 @@
   }
 
   &-year {
-    font-size: rem(25);;
+    font-size: rem(25);
+    ;
   }
 
   &-month_day {
@@ -224,6 +225,36 @@
 
     @include MQ(md) {
       top: rem(60);
+    }
+  }
+
+  &-weather {
+    font-size: rem(20);
+    margin-left: rem(30);
+    line-height: 1.2;
+    animation-name: fadeInWeather;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @include MQ(md) {
+      font-size: rem(16);
+      margin-left: rem(20);
+    }
+
+    &_icon {
+      max-width: rem(20);
+      margin-left: rem(5);
+    }
+  }
+
+  @keyframes fadeInWeather {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
   }
 }
