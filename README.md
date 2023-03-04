@@ -16,6 +16,9 @@ http://hirai.website/hirai-react-portfolio/
   <li>Email.js</li>
 </ul>
 
+## ヘッダーの天気情報
+気象庁が用意しているApiから今日の福井県の天気情報を取得
+
 # コマンド
 ### `npm start`
 
