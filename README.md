@@ -17,9 +17,15 @@ http://hirai.website/hirai-react-portfolio/
 </ul>
 
 ## ヘッダーの天気情報
-気象庁が用意しているApiから今日の福井県の天気情報を取得
+気象庁が用意しているApiから今日の福井県の天気情報を取得。
+## MVのアニメーション
+tsparticles.jsを使用。
+## My skill setのグラフ
+react-chartjs-2を使用。
+## お問い合わせフォーム
+Email.jsを使用してメール送信処理を実装。
 
-# コマンド
+# npm scripts
 ### `npm start`
 
 アプリを開発モードで実行。<br>
@@ -29,8 +35,8 @@ http://localhost:3000 で表示。
 本番用のアプリをフォルダにビルド。
 
 # CSSルール
-コンポーネント名 + "-"をクラス名の頭につける。<br>
-CSS Modulesを使用する。
+・コンポーネント名 + "-"をクラス名の頭につける。<br>
+・CSS Modulesを使用する。
 
 # package.jsonの更新方法
 
