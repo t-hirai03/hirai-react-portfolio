@@ -226,4 +226,20 @@
       top: rem(60);
     }
   }
+
+  &-weather {
+    font-size: rem(20);
+    margin-left: rem(30);
+    line-height: 1.2;
+
+    @include MQ(md) {
+      font-size: rem(16);
+      margin-left: rem(20);
+    }
+
+    &_icon {
+      max-width: rem(20);
+      margin-left: rem(5);
+    }
+  }
 }
