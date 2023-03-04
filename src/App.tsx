@@ -2,7 +2,6 @@ import React from "react";
 import HeaderSection from "./components/header";
 import Top from "./page/top";
 import FooterSection from "./components/footer";
-import AudioLoading from "./components/audioLoading";
 import RevolvingDotLoading from "./components/revolvingDotLoading";
 import { useSelector } from 'react-redux'
 import { selectCount } from './store/reducer'
@@ -22,14 +21,9 @@ const App = () => {
       {/* ヘッダー */}
       <HeaderSection />
       {/* コンテンツ */}
-      {isLoading ? (
-        <AudioLoading />
-      ) : (
-        <div>
-          <Top />
-          <FooterSection />
-        </div>
-      )}
+      <Top />
+      {/* フッター */}
+      <FooterSection />
     </div>
   );
 }
