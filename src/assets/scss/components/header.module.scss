@@ -245,6 +245,10 @@
     &_icon {
       max-width: rem(20);
       margin-left: rem(5);
+
+      @include MQ(md) {
+        max-width: rem(16);
+      }
     }
   }
 
