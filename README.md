@@ -1,29 +1,55 @@
-# The View
-http://hirai.website/hirai-react-portfolio/
+# ポートフォリオ
+## URL
+下記URLに本ポートフォリオを掲載。
 
-上記URLに本ポートフォリオを掲載。
+<strong>URL：http://hirai.website/hirai-react-portfolio/</strong>
+
+### 制作意図
+業務で携わったことがないモダンなフロントエンドの技術が多いと思い、勉強がてらにそれらを使用したポートフォリオを制作しました。
+#### ポートフォリオ制作するうえで使用してみたかった技術
+* React
+* TypeScript
 
 # 使用技術
 <ul>
   <li>
-    React
+    フレームワーク
     <ul>
-      <li>redux</li>
-      <li>tsparticles.js</li>
+      <li>React</li>
     </ul>
   </li>
-  <li>TypeScript</li>
-  <li>Email.js</li>
+  <li>言語
+    <ul>
+      <li>html</li>
+      <li>css/scss</li>
+      <li>JavaScript/TypeScript</li>
+    </ul>
+  </li>
+  <li>
+    アニメーション
+    <ul>
+      <li>tsparticles.js</li>
+      <li>gsap</li>
+    </ul>
+  </li>
+  <li>
+    お問い合わせフォーム
+    <ul>
+      <li>Email.js</li>
+    </ul>
+  </li>
 </ul>
 
 ## ヘッダーの天気情報
 気象庁が用意しているApiから今日の福井県の天気情報を取得。
 ## MVのアニメーション
-tsparticles.jsを使用。
+背景のアニメーションはtsparticles.jsを使用。
+文字のアニメーションはgsapを使用。
 ## My skill setのグラフ
 react-chartjs-2を使用。
 ## お問い合わせフォーム
 Email.jsを使用してメール送信処理を実装。
+送信時のローディング表示、非表示制御はreduxを使用。
 ## インスタグラムの投稿を表示
 インスタグラムのApiを使用して今後実装予定。
 
