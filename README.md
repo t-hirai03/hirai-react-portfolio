@@ -36,7 +36,10 @@
   <li>
     お問い合わせフォーム
     <ul>
+      <li>redux</li>
       <li>Email.js</li>
+      <li>bootstrap</li>
+      <li>Material-UI</li>
     </ul>
   </li>
 </ul>
