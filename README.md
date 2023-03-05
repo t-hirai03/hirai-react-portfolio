@@ -47,12 +47,13 @@
 背景のアニメーションはtsparticles.jsを使用。<br>
 文字のアニメーションはgsapを使用。
 ## My skill setのグラフ
-react-chartjs-2を使用。
+Reactのグラフライブラリ「react-chartjs-2」を使用。
 ## お問い合わせフォーム
 Email.jsを使用してメール送信処理を実装。<br>
 送信時のローディング表示、非表示制御はreduxを使用。
-## インスタグラムの投稿を表示
-インスタグラムのApiを使用して今後実装予定。
+## お問い合わせフォーム送信後に表示するモーダル
+bootstrapのモーダルを使用。<br>
+モーダルサイズのレスポンシブ調整をMaterial-UIを使用して対応。
 
 # npm scripts
 ### `npm start`
