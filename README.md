@@ -2,7 +2,7 @@
 ## URL
 下記URLに本ポートフォリオを掲載。
 
-<strong>URL：https://github.com/priv-hirai/hirai-react-portfolio</strong>
+<strong>URL：https://hirai.website/hirai-react-portfolio/</strong>
 
 ### 制作意図
 業務で携わったことがないモダンなフロントエンドの技術が多いと思い、<br>
