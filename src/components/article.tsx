@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 type Props = {
     articleUrl: string;
@@ -6,7 +6,7 @@ type Props = {
 
 export const article: React.FC<Props> = (props) => {
     // 記事のURL取得
-    let articleUrl = props.articleUrl;
+    // let articleUrl = props.articleUrl;
 
     return (
         <div></div>

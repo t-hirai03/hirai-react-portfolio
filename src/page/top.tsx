@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import hiraiFaceImage from "../assets/image/page/top/face.jpg";
+import zennIcon from "../assets/image/page/top/logo-zenn.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import GitHubIcon from "../components/gitHubIcon";
@@ -85,9 +86,9 @@ function Top() {
       <section id="mv">
         <Mv />
       </section>
-      <section id="about" className={cx(styles['top-section'],'about-section')}>
+      <section id="about" className={cx(styles['top-section'], 'about-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-left')}>About</h2>
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-left')}>About</h2>
           <div className={styles['top-about']}>
             <div className={cx(styles['top-about_image'])}>
               <img src={hiraiFaceImage} alt="平井 隆裕" />
@@ -132,13 +133,19 @@ function Top() {
                   ゲーム
                 </dd>
               </dl>
+              <dl className={styles['top-about_dl']}>
+                <dt>自己研鑽：</dt>
+                <dd>
+                  <a href="https://zenn.dev/hiiiita" target="_blank" rel="noreferrer" className={styles['top-zenn']}><img src={zennIcon} alt="" /><span>Zenn始めました</span></a>
+                </dd>
+              </dl>
             </div>
           </div>
         </div>
       </section>
-      <section id="skill" className={cx(styles['top-section'],'skill-section')}>
+      <section id="skill" className={cx(styles['top-section'], 'skill-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-right')}>My skill set</h2>
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-right')}>My skill set</h2>
           <div>
             <p className={styles['top-skill_text']}>
               業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
@@ -267,9 +274,9 @@ function Top() {
           </div>
         </div>
       </section> */}
-      <section id="contact" className={cx(styles['top-section'],'contact-section')}>
+      <section id="contact" className={cx(styles['top-section'], 'contact-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-bottom')}>Contact me</h2>
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-bottom')}>Contact me</h2>
           <div className={cx(styles['top-contact'])}>
             <p>
               最後までご覧いただきありがとうございました。
