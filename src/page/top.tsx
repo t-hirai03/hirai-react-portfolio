@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import hiraiFaceImage from "../assets/image/page/top/face.jpg";
+import zennIcon from "../assets/image/page/top/logo-zenn.svg";
 import Charts from "../components/chart";
 import Contact from "../components/contact";
 import GitHubIcon from "../components/gitHubIcon";
 import Mv from "../components/mv";
+// import Article from "../components/article";
 import styles from "../assets/scss/page/top.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCoverflow } from "swiper";
@@ -20,7 +22,7 @@ function Top() {
   const div = useRef<HTMLDivElement>(null);
   useEffect(() => {
     gsap.fromTo(
-      ".fadeIn-about",
+      ".fadeIn-left",
       {
         opacity: 0,
         x: -100,
@@ -39,7 +41,7 @@ function Top() {
     );
 
     gsap.fromTo(
-      ".fadeIn-skill",
+      ".fadeIn-right",
       {
         opacity: 0,
         x: 100,
@@ -59,7 +61,7 @@ function Top() {
     );
 
     gsap.fromTo(
-      ".fadeIn-contact",
+      ".fadeIn-bottom",
       {
         opacity: 0,
         y: 100,
@@ -84,14 +86,14 @@ function Top() {
       <section id="mv">
         <Mv />
       </section>
-      <section id="about" className={cx(styles['top-section'],'about-section')}>
+      <section id="about" className={cx(styles['top-section'], 'about-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-about')}>About</h2>
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-left')}>About</h2>
           <div className={styles['top-about']}>
-            <div className={cx(styles['top-about_image'],'fadeIn-about')}>
+            <div className={cx(styles['top-about_image'])}>
               <img src={hiraiFaceImage} alt="平井 隆裕" />
             </div>
-            <div className={cx(styles['top-about_item'],'fadeIn-about')}>
+            <div className={cx(styles['top-about_item'])}>
               <div className={styles['top-about_wrap']}>
                 <p>平井隆裕 - ひらいたかひろ</p>
                 <p className={styles['top-about_icon']}>
@@ -131,14 +133,20 @@ function Top() {
                   ゲーム
                 </dd>
               </dl>
+              <dl className={styles['top-about_dl']}>
+                <dt>自己研鑽：</dt>
+                <dd>
+                  <a href="https://zenn.dev/hiiiita" target="_blank" rel="noreferrer" className={styles['top-zenn']}><img src={zennIcon} alt="" /><span>Zenn始めました</span></a>
+                </dd>
+              </dl>
             </div>
           </div>
         </div>
       </section>
-      <section id="skill" className={cx(styles['top-section'],'skill-section')}>
+      <section id="skill" className={cx(styles['top-section'], 'skill-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-skill')}>My skill set</h2>
-          <div className="fadeIn-skill">
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-right')}>My skill set</h2>
+          <div>
             <p className={styles['top-skill_text']}>
               業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
               オールラウンドに対応できる点が強みですが、全体的に理解が浅く、専門性の低さを認識しています。今後はフロントエンド系の開発の業務に携わる比率を増やし、
@@ -146,7 +154,7 @@ function Top() {
             </p>
             <p>＊業務で実際に使用した技術のみ掲載しております。</p>
           </div>
-          <div className={cx(styles['top-chart'],'fadeIn-skill')}>
+          <div className={cx(styles['top-chart'])}>
             <div className={styles['top-chart_pc']}>
               <div className={styles['top-chart_contents']}>
                 <Charts
@@ -249,7 +257,7 @@ function Top() {
               </Swiper>
             </div>
           </div>
-          <div className="fadeIn-skill">
+          <div>
             <p className={styles['top-skill_text']}>
               チャートの見方としては「1: 軽く使用した程度」、「2:
               実務で数ヶ月以上使用しているがもう少し習熟が必要」、「3:
@@ -258,10 +266,18 @@ function Top() {
           </div>
         </div>
       </section>
-      <section id="contact" className={cx(styles['top-section'],'contact-section')}>
+      {/* <section className={cx(styles['top-section'])}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-contact')}>Contact me</h2>
-          <div className={cx(styles['top-contact'],'fadeIn-contact')}>
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-left')}>Self improvement</h2>
+          <div>
+            <Article articleUrl={"https://zenn.dev/hiiiita/articles/a4881dab7226aa"} />
+          </div>
+        </div>
+      </section> */}
+      <section id="contact" className={cx(styles['top-section'], 'contact-section')}>
+        <div className="ly_inner">
+          <h2 className={cx(styles['top-contents_title'], 'fadeIn-bottom')}>Contact me</h2>
+          <div className={cx(styles['top-contact'])}>
             <p>
               最後までご覧いただきありがとうございました。
               このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。

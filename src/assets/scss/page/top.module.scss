@@ -46,11 +46,11 @@
     img {
       width: 100%;
       max-width: rem(300);
-      box-shadow: -1.875rem 1.875rem 0 #C7B897;
+      box-shadow: -1.875rem 1.875rem 0 $aiColor;
 
       @include MQ(md) {
         max-width: rem(210);
-        box-shadow: -1.25rem 1.25rem 0 #C7B897;
+        box-shadow: -1.25rem 1.25rem 0 $aiColor;
       }
     }
   }
@@ -69,6 +69,7 @@
     width: 50%;
     padding: 1rem;
     background-color: $themeColor;
+    position: relative;
 
     @include MQ(md) {
       margin-top: rem(35);
@@ -78,10 +79,6 @@
   }
 
   &-about_wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
     img {
       width: rem(40);
 
@@ -98,6 +95,7 @@
     dt {
       font-weight: normal;
       min-width: rem(90);
+
       @include MQ(md) {
         min-width: rem(80);
       }
@@ -149,6 +147,27 @@
       margin-bottom: rem(15);
     }
   }
+
+  &-zenn {
+    display: flex;
+    align-items: end;
+    font-weight: bold;
+
+    img {
+      width: 100%;
+      max-width: rem(25);
+    }
+
+    span {
+      margin-left: rem(5);
+    }
+
+    @include hover {
+      opacity: 0.8;
+    }
+  }
 }
 
-
+p {
+  margin-bottom: 0;
+}
