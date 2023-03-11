@@ -17,6 +17,7 @@ body {
 p {
   font-size: rem(16);
   line-height: 2rem;
+  margin: 0;
   
   @include MQ(md) {
     font-size: rem(14);
