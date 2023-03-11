@@ -88,10 +88,10 @@ function Top() {
         <div className="ly_inner">
           <h2 className={cx(styles['top-contents_title'],'fadeIn-about')}>About</h2>
           <div className={styles['top-about']}>
-            <div className={cx(styles['top-about_image'],'fadeIn-about')}>
+            <div className={cx(styles['top-about_image'])}>
               <img src={hiraiFaceImage} alt="平井 隆裕" />
             </div>
-            <div className={cx(styles['top-about_item'],'fadeIn-about')}>
+            <div className={cx(styles['top-about_item'])}>
               <div className={styles['top-about_wrap']}>
                 <p>平井隆裕 - ひらいたかひろ</p>
                 <p className={styles['top-about_icon']}>
@@ -138,7 +138,7 @@ function Top() {
       <section id="skill" className={cx(styles['top-section'],'skill-section')}>
         <div className="ly_inner">
           <h2 className={cx(styles['top-contents_title'],'fadeIn-skill')}>My skill set</h2>
-          <div className="fadeIn-skill">
+          <div>
             <p className={styles['top-skill_text']}>
               業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
               オールラウンドに対応できる点が強みですが、全体的に理解が浅く、専門性の低さを認識しています。今後はフロントエンド系の開発の業務に携わる比率を増やし、
@@ -146,7 +146,7 @@ function Top() {
             </p>
             <p>＊業務で実際に使用した技術のみ掲載しております。</p>
           </div>
-          <div className={cx(styles['top-chart'],'fadeIn-skill')}>
+          <div className={cx(styles['top-chart'])}>
             <div className={styles['top-chart_pc']}>
               <div className={styles['top-chart_contents']}>
                 <Charts
@@ -249,7 +249,7 @@ function Top() {
               </Swiper>
             </div>
           </div>
-          <div className="fadeIn-skill">
+          <div>
             <p className={styles['top-skill_text']}>
               チャートの見方としては「1: 軽く使用した程度」、「2:
               実務で数ヶ月以上使用しているがもう少し習熟が必要」、「3:
@@ -261,7 +261,7 @@ function Top() {
       <section id="contact" className={cx(styles['top-section'],'contact-section')}>
         <div className="ly_inner">
           <h2 className={cx(styles['top-contents_title'],'fadeIn-contact')}>Contact me</h2>
-          <div className={cx(styles['top-contact'],'fadeIn-contact')}>
+          <div className={cx(styles['top-contact'])}>
             <p>
               最後までご覧いただきありがとうございました。
               このサイトを通して、私のことを少しでも知っていただけたのなら嬉しいです。
