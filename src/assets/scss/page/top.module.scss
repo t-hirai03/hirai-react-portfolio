@@ -46,11 +46,11 @@
     img {
       width: 100%;
       max-width: rem(300);
-      box-shadow: -1.875rem 1.875rem 0 #C7B897;
+      box-shadow: -1.875rem 1.875rem 0 $aiColor;
 
       @include MQ(md) {
         max-width: rem(210);
-        box-shadow: -1.25rem 1.25rem 0 #C7B897;
+        box-shadow: -1.25rem 1.25rem 0 $aiColor;
       }
     }
   }
@@ -69,6 +69,7 @@
     width: 50%;
     padding: 1rem;
     background-color: $themeColor;
+    position: relative;
 
     @include MQ(md) {
       margin-top: rem(35);

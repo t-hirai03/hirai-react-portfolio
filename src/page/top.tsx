@@ -4,6 +4,7 @@ import Charts from "../components/chart";
 import Contact from "../components/contact";
 import GitHubIcon from "../components/gitHubIcon";
 import Mv from "../components/mv";
+// import Article from "../components/article";
 import styles from "../assets/scss/page/top.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCoverflow } from "swiper";
@@ -20,7 +21,7 @@ function Top() {
   const div = useRef<HTMLDivElement>(null);
   useEffect(() => {
     gsap.fromTo(
-      ".fadeIn-about",
+      ".fadeIn-left",
       {
         opacity: 0,
         x: -100,
@@ -39,7 +40,7 @@ function Top() {
     );
 
     gsap.fromTo(
-      ".fadeIn-skill",
+      ".fadeIn-right",
       {
         opacity: 0,
         x: 100,
@@ -59,7 +60,7 @@ function Top() {
     );
 
     gsap.fromTo(
-      ".fadeIn-contact",
+      ".fadeIn-bottom",
       {
         opacity: 0,
         y: 100,
@@ -86,7 +87,7 @@ function Top() {
       </section>
       <section id="about" className={cx(styles['top-section'],'about-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-about')}>About</h2>
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-left')}>About</h2>
           <div className={styles['top-about']}>
             <div className={cx(styles['top-about_image'])}>
               <img src={hiraiFaceImage} alt="平井 隆裕" />
@@ -137,7 +138,7 @@ function Top() {
       </section>
       <section id="skill" className={cx(styles['top-section'],'skill-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-skill')}>My skill set</h2>
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-right')}>My skill set</h2>
           <div>
             <p className={styles['top-skill_text']}>
               業務で身につけたスキルをグラフにまとめました。フロントからバックエンドまで取り組んできました。
@@ -258,9 +259,17 @@ function Top() {
           </div>
         </div>
       </section>
+      {/* <section className={cx(styles['top-section'])}>
+        <div className="ly_inner">
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-left')}>Self improvement</h2>
+          <div>
+            <Article articleUrl={"https://zenn.dev/hiiiita/articles/a4881dab7226aa"} />
+          </div>
+        </div>
+      </section> */}
       <section id="contact" className={cx(styles['top-section'],'contact-section')}>
         <div className="ly_inner">
-          <h2 className={cx(styles['top-contents_title'],'fadeIn-contact')}>Contact me</h2>
+          <h2 className={cx(styles['top-contents_title'],'fadeIn-bottom')}>Contact me</h2>
           <div className={cx(styles['top-contact'])}>
             <p>
               最後までご覧いただきありがとうございました。
