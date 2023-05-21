@@ -91,7 +91,7 @@ function Header() {
               <AnchorLink href={"#header"} offset={() => 0}><span>Top</span></AnchorLink>
             </li>
             <li className={styles['header-navMenu-item']} onClick={expandMenu}>
-              <a href="http://hirai.website/gallery/"><span>Gallery</span></a>
+              <a href="https://zenn.dev/hiiiita" target="_blank" rel="noreferrer"><span>自己研鑽</span></a>
             </li>
           </ul>
         </div>
