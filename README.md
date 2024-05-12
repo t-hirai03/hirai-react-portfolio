@@ -2,7 +2,7 @@
 ## URL
 下記URLに本ポートフォリオを掲載。
 
-<strong>URL：https://privbucket03.s3.ap-northeast-1.amazonaws.com/portfolio/index.html</strong>
+<strong>URL：https://hirai-react-portfolio.vercel.app/</strong>
 
 ### 制作意図
 業務で携わったことがないモダンなフロントエンドの技術が多いと思い、<br>
