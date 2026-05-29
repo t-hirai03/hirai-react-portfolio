@@ -1,15 +1,15 @@
-import React from "react";
 import styles from "../assets/scss/components/footer.module.scss";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
-function footer() {
+function Footer() {
   return (
-    <footer className={styles['footer']}>
+    <footer className={styles["footer"]}>
       <div id="page_top">
-        <AnchorLink className={styles['footer-scrollUp']} href={"#header"}  offset={() => 0}><span>TOP</span></AnchorLink>
+        <a className={styles["footer-scrollUp"]} href="#header">
+          <span>TOP</span>
+        </a>
       </div>
     </footer>
   );
 }
 
-export default footer;
+export default Footer;

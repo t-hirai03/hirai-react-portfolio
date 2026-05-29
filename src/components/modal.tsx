@@ -1,9 +1,5 @@
-import React from "react";
-import "../assets/scss/components/modal.scss";
-import { Container } from "@mui/material";
-import Modal from "react-bootstrap/Modal";
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from "react";
+import styles from "../assets/scss/components/modal.module.scss";
 
 type Props = {
   emailMessage: string;
@@ -11,22 +7,53 @@ type Props = {
   closeFunc: () => void;
 };
 
-export const modal = ({ emailMessage, isModalOpen, closeFunc }: Props) => {
-  return (
-    <Container maxWidth="sm">
-      <Modal show={isModalOpen} onHide={closeFunc} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Contact me</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{emailMessage}</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={closeFunc}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Container>
-  );
-};
+function Modal({ emailMessage, isModalOpen, closeFunc }: Props) {
+  useEffect(() => {
+    if (!isModalOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeFunc();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isModalOpen, closeFunc]);
 
-export default modal;
+  if (!isModalOpen) return null;
+
+  return (
+    <div className={styles["modal-overlay"]} onClick={closeFunc}>
+      <div
+        className={styles["modal"]}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className={styles["modal-header"]}>
+          <h2 id="modal-title" className={styles["modal-title"]}>
+            Contact me
+          </h2>
+          <button
+            type="button"
+            className={styles["modal-close"]}
+            aria-label="閉じる"
+            onClick={closeFunc}
+          >
+            &times;
+          </button>
+        </div>
+        <p className={styles["modal-body"]}>{emailMessage}</p>
+        <div className={styles["modal-footer"]}>
+          <button
+            type="button"
+            className={styles["modal-btn"]}
+            onClick={closeFunc}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Modal;

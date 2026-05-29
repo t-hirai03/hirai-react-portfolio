@@ -1,101 +1,113 @@
-import React from "react";
+import { useEffect, useId, useState } from "react";
+import cx from "classnames";
 import styles from "../assets/scss/components/header.module.scss";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import weatherIcon from "../assets/image/components/header/weather.svg";
 
+type JmaForecast = {
+  timeSeries: {
+    areas: { weathers?: string[] }[];
+  }[];
+};
+
 function Header() {
-  // ハンバーガーメニューの展開制御する変数
-  let isExpand: boolean = false;
-  // ハンバーガーメニューボタンクリック時の処理
-  const expandMenu = (
-    event: React.MouseEvent<HTMLButtonElement | HTMLDivElement | HTMLLIElement, MouseEvent>
-  ) => {
-    // 展開フラグの真偽値を逆転させる
-    isExpand = !isExpand;
+  const [isOpen, setIsOpen] = useState(false);
+  const [todayWeather, setTodayWeather] = useState("");
+  const navId = useId();
 
-    // ハンバーガーメニューボタンの変更
-    document.getElementById("header-hamburgerMenu")!.classList.toggle(styles['header-hamburgerMenu_active']);
-    // ナビゲーション開閉
-    document.getElementById("header-nav")!.classList.toggle(styles['header-navMenu_active']);
-    // ナビゲーション開閉
-    document.getElementById("header-nav_overlay")!.classList.toggle(styles['header-overlay_active']);
+  useEffect(() => {
+    const controller = new AbortController();
 
-    if (window.innerWidth <= 768) {
-      document.getElementById("header-bar")!.classList.toggle(styles['header-bar_active']);
-    }
-  };
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch(
+          "https://www.jma.go.jp/bosai/forecast/data/forecast/180000.json",
+          { signal: controller.signal }
+        );
+        const data = (await response.json()) as JmaForecast[];
+        const weather = data[0]?.timeSeries[0]?.areas[0]?.weathers?.[0];
+        if (weather) setTodayWeather(weather);
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.error("天気情報の取得に失敗しました", error);
+        }
+      }
+    };
 
-  // 768pxにしたときにheader-bar_activeクラスを削除する
-  function reportWindowSize() {
-    if (window.innerWidth >= 768) {
-      document.getElementById("header-bar")!.classList.remove(styles['header-bar_active']);
-    } else if (window.innerWidth <= 767 && isExpand === true) {
-      document.getElementById("header-bar")!.classList.add(styles['header-bar_active']);
-    }
-  }
-  window.onresize = reportWindowSize;
+    fetchWeather();
+    return () => controller.abort();
+  }, []);
 
-  // 日付型取得
-  let now = new Date();
-  // 年数取得
-  let year = now.getFullYear();
-  // 月数取得
-  let month = now.getMonth() + 1;
-  // 日数取得
-  let day = now.getDate();
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
 
-  // 天気情報を格納するリスト
-  let fukuiWeather = null;
-  // 今日の天気情報を表示する変数
-  const [todayFukuiWeather, setTodayFukuiWeather] = React.useState("");
-
-  // 気象庁のAPIから今日の福井県の天気情報を取得する。
-  async function getWeather() {
-    await fetch('https://www.jma.go.jp/bosai/forecast/data/forecast/180000.json')
-      .then((response) => {
-        // 非同期処理が成功した場合
-        return response.json();
-      })
-      .then(function (weather) {
-        // 福井の天気情報を取得する
-        fukuiWeather = weather[0].timeSeries[0].areas[0];
-        // 今日の福井の天気を取得する
-        setTodayFukuiWeather(fukuiWeather.weathers[0]);
-      })
-      .catch((error) => {
-        // 非同期処理が失敗した場合
-        console.log('失敗 : ' + error)
-      });
-  }
-  getWeather();
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <header id="header">
-      <div className={styles['header-bar']} id="header-bar">
-        {/* 日付 */}
+      <div
+        className={cx(styles["header-bar"], { [styles["header-bar_active"]]: isOpen })}
+        id="header-bar"
+      >
         <div className="ly_inner">
-          <p className={styles['header-date']}>
-            <span className={styles['header-year']}>{year}.</span>
-            <span className={styles['header-month_day']}>{month}.{day}</span>
-            <span className={styles['header-weather']}>今日の福井県の天気<img src={weatherIcon} className={styles['header-weather_icon']} /><br />{todayFukuiWeather}</span>
+          <p className={styles["header-date"]}>
+            <span className={styles["header-year"]}>{year}.</span>
+            <span className={styles["header-month_day"]}>
+              {month}.{day}
+            </span>
+            <span className={styles["header-weather"]}>
+              今日の福井県の天気
+              <img src={weatherIcon} className={styles["header-weather_icon"]} alt="" />
+              <br />
+              {todayWeather}
+            </span>
           </p>
         </div>
       </div>
-      <div id="header-hamburgerMenu" className={styles['header-hamburgerMenu']} onClick={expandMenu}>
-        <span></span>
-      </div>
-      <nav id="header-nav" className={styles['header-nav']}>
-        <div className={styles['header-navMenu']} >
-          <ul className={styles['header-navMenu-list']}>
-            <li className={styles['header-navMenu-item']} onClick={expandMenu}>
-              <AnchorLink href={"#header"} offset={() => 0}><span>Top</span></AnchorLink>
+      <button
+        type="button"
+        className={cx(styles["header-hamburgerMenu"], {
+          [styles["header-hamburgerMenu_active"]]: isOpen,
+        })}
+        aria-label="メニューを開閉する"
+        aria-expanded={isOpen}
+        aria-controls={navId}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        <span />
+      </button>
+      <nav
+        id={navId}
+        className={cx(styles["header-nav"], {
+          [styles["header-navMenu_active"]]: isOpen,
+        })}
+      >
+        <div className={styles["header-navMenu"]}>
+          <ul className={styles["header-navMenu-list"]}>
+            <li className={styles["header-navMenu-item"]}>
+              <a href="#header" onClick={closeMenu}>
+                <span>Top</span>
+              </a>
             </li>
-            <li className={styles['header-navMenu-item']} onClick={expandMenu}>
-              <a href="https://zenn.dev/hiiiita" target="_blank" rel="noreferrer"><span>自己研鑽</span></a>
+            <li className={styles["header-navMenu-item"]}>
+              <a
+                href="https://zenn.dev/hiiiita"
+                target="_blank"
+                rel="noreferrer"
+                onClick={closeMenu}
+              >
+                <span>自己研鑽</span>
+              </a>
             </li>
           </ul>
         </div>
-        <div id="header-nav_overlay" className={styles['header-overlay']} onClick={expandMenu}></div>
+        <div
+          className={cx(styles["header-overlay"], {
+            [styles["header-overlay_active"]]: isOpen,
+          })}
+          onClick={closeMenu}
+        />
       </nav>
     </header>
   );

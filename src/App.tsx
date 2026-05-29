@@ -1,25 +1,20 @@
-import React from "react";
-import HeaderSection from "./components/header";
+import Header from "./components/header";
 import Top from "./page/top";
-import FooterSection from "./components/footer";
-import RevolvingDotLoading from "./components/revolvingDotLoading";
-import { useSelector } from 'react-redux'
-import { selectCount } from './store/reducer'
+import Footer from "./components/footer";
+import Loading from "./components/loading";
+import { useLoading } from "./context/LoadingContext";
 
 const App = () => {
-  const isRevolvingDotLoading = useSelector(selectCount);
+  const { isLoading } = useLoading();
 
   return (
-    <div>
-      {isRevolvingDotLoading && <RevolvingDotLoading />}
-      {/* ヘッダー */}
-      <HeaderSection />
-      {/* コンテンツ */}
+    <>
+      {isLoading && <Loading />}
+      <Header />
       <Top />
-      {/* フッター */}
-      <FooterSection />
-    </div>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;

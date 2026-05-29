@@ -1,75 +1,37 @@
-import React, { useEffect } from 'react';
-import { css, keyframes } from '@emotion/css';
-import gitHubIconStyles from "../assets/scss/components/gitHubIcon.module.scss";
+import { useState } from "react";
+import cx from "classnames";
+import styles from "../assets/scss/components/gitHubIcon.module.scss";
 
-function GitSVG() {
-    const hoverHandler = () => {
-        const octo_arm = document.getElementById('octo-arm')! as HTMLElement
-        octo_arm.classList.add(styles.octoArm)
-    }
+function GitHubIcon() {
+  const [isWaving, setIsWaving] = useState(false);
 
-    useEffect(() => {
-        const octo_arm = document.getElementById('octo-arm')! as HTMLElement
-        const removeStyles = () => {
-            octo_arm.classList.remove(styles.octoArm)
-        }
-        octo_arm.addEventListener('animationend', removeStyles)
-        return () => octo_arm.removeEventListener('animationend', removeStyles)
-    }, []);
-
-    return (
-        <span>
-            <svg
-                width="70"
-                height="70"
-                viewBox="0 0 250 250"
-                style={{
-                    fill: '#fff',
-                    color: '#151513',
-                    position: 'absolute',
-                    top: 0,
-                    border: 0,
-                    right: 0
-                }}
-                className={gitHubIconStyles.gitHubIcon}
-                aria-hidden="true">
-                <g className={styles.group} onMouseEnter={hoverHandler}>
-                    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-                    <path
-                        id="octo-arm"
-                        d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-                        fill="currentColor"
-                        style={{ transformOrigin: '130px 106px' }}></path>
-                    <path
-                        d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-                        fill="currentColor"></path>
-                </g>
-            </svg>
-        </span>
-    )
+  return (
+    <span>
+      <svg
+        width="70"
+        height="70"
+        viewBox="0 0 250 250"
+        className={styles["gitHubIcon"]}
+        aria-hidden="true"
+      >
+        <g className={styles["group"]} onMouseEnter={() => setIsWaving(true)}>
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" />
+          <path
+            className={cx(styles["octoArm"], {
+              [styles["octoArm_waving"]]: isWaving,
+            })}
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor"
+            onAnimationEnd={() => setIsWaving(false)}
+          />
+          <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </span>
+  );
 }
 
-const animations = {
-    arm: keyframes`
-    0% {
-      transform: rotate(0);
-    }
-    50% {
-      transform: rotate(-30deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  `
-}
-
-const styles = {
-    octoArm: css`
-        animation: ${animations.arm} 0.3s ease-in 0s 3;
-    `,
-    group: css`
-        cursor: pointer;
-    `
-}
-
-export default GitSVG;
+export default GitHubIcon;
