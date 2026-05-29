@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:map";
 
 $breakpoint: 767;
 $contSpaceValue: 10;
@@ -40,7 +41,7 @@ $breakpoints: (
 );
 
 @mixin MQ($breakpoint: md) {
-	@media #{map-get($breakpoints, $breakpoint)} {
+	@media #{map.get($breakpoints, $breakpoint)} {
 	  @content;
 	}
 }

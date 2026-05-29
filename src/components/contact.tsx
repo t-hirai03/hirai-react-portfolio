@@ -1,115 +1,112 @@
-import React from "react";
+import { useId, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import styles from "../assets/scss/components/contact.module.scss";
 import Modal from "./modal";
-import { useDispatch } from 'react-redux'
-import { decrement, increment } from '../store/reducer'
+import { useLoading } from "../context/LoadingContext";
 
-type Inputs = {
+type ContactForm = {
   name: string;
   email: string;
   comment: string;
 };
 
-export const Demo = () => {
-  const dispatch = useDispatch();
+const EMAIL_PATTERN =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+function Contact() {
+  const { showLoading, hideLoading } = useLoading();
+  const nameId = useId();
+  const emailId = useId();
+  const commentId = useId();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm<Inputs>();
+    formState: { errors, isSubmitting },
+  } = useForm<ContactForm>();
 
-  // EmailJSでメール送信処理を行う
-  const sendEmail: SubmitHandler<Inputs> = (formData) => {
-    openLoading();
-    emailjs
-      .send(
-        "service_q33y4rh",
-        "template_96aqcml",
+  const sendEmail: SubmitHandler<ContactForm> = async (formData) => {
+    showLoading();
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formData,
-        "rawkfONLc6juf6E_5"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          // モーダルに表示するメッセージ
-          setModalMessage("ありがとうございます。メッセージは送信されました。");
-          // モーダル表示
-          setIsOpen(true);
-          // ローディング解除
-          closeLoading();
-        },
-        (error) => {
-          console.log(error.text);
-          // モーダルに表示するメッセージ
-          setModalMessage("メール送信できませんでした。");
-          // モーダル表示
-          setIsOpen(true);
-          // ローディング解除
-          closeLoading();
-        }
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       );
-    reset();
+      setModalMessage("ありがとうございます。メッセージは送信されました。");
+      reset();
+    } catch {
+      setModalMessage("メール送信できませんでした。時間をおいて再度お試しください。");
+    } finally {
+      hideLoading();
+      setIsModalOpen(true);
+    }
   };
-
-  // モーダル表示、非表示制御フラグ
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  // モーダルに表示するメッセージ変数
-  const [modalMessage, setModalMessage] = React.useState("");
-
-  const openLoading = () => {
-    dispatch(increment(React.useState))
-  }
-
-  const closeLoading = () => {
-    dispatch(decrement(React.useState))
-  }
 
   return (
     <div>
       <Modal
-        isModalOpen={modalIsOpen}
+        isModalOpen={isModalOpen}
         emailMessage={modalMessage}
-        closeFunc={() => setIsOpen(false)}
+        closeFunc={() => setIsModalOpen(false)}
       />
-      <form className={styles['contact']} onSubmit={handleSubmit(sendEmail)}>
-        <div className={styles['contact-input-field']}>
-          <input {...register("name")} placeholder="Name" required />
-        </div>
-        <div className={styles['contact-input-field']}>
+      <form className={styles["contact"]} onSubmit={handleSubmit(sendEmail)} noValidate>
+        <div className={styles["contact-input-field"]}>
+          <label htmlFor={nameId} className={styles["contact-label"]}>
+            お名前
+          </label>
           <input
+            id={nameId}
+            placeholder="Name"
+            {...register("name", { required: "お名前を入力してください。" })}
+          />
+          <ErrorMessage errors={errors} name="name" />
+        </div>
+        <div className={styles["contact-input-field"]}>
+          <label htmlFor={emailId} className={styles["contact-label"]}>
+            メールアドレス
+          </label>
+          <input
+            id={emailId}
+            placeholder="Email"
             {...register("email", {
-              required: true,
-              maxLength: 60,
+              required: "メールアドレスを入力してください。",
+              maxLength: { value: 60, message: "メールアドレスが長すぎます。" },
               pattern: {
-                value:
-                  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                value: EMAIL_PATTERN,
                 message: "メールアドレスの形式が不正です。",
               },
             })}
-            placeholder="Email"
-            required
           />
+          <ErrorMessage errors={errors} name="email" />
         </div>
-        <div className={styles['contact-input-field']} >
+        <div className={styles["contact-input-field"]}>
+          <label htmlFor={commentId} className={styles["contact-label"]}>
+            コメント
+          </label>
           <TextareaAutosize
-            {...register("comment")}
+            id={commentId}
             placeholder="Comment"
-            required
+            {...register("comment", { required: "コメントを入力してください。" })}
           />
+          <ErrorMessage errors={errors} name="comment" />
         </div>
-        <ErrorMessage errors={errors} name="email" />
-        <div className={styles['contact-btn-field']}>
-          <button type="submit">Submit</button>
+        <div className={styles["contact-btn-field"]}>
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
         </div>
       </form>
     </div>
   );
-};
+}
 
-export default Demo;
+export default Contact;

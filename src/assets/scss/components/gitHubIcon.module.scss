@@ -1,8 +1,39 @@
 @use "../system.scss" as *;
 
-.gitHubIcon{
-    @include MQ(md) {
-        height: rem(60);
-        width: rem(60);
-      }
+.gitHubIcon {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  fill: #fff;
+  color: #151513;
+  border: 0;
+
+  @include MQ(md) {
+    block-size: rem(60);
+    inline-size: rem(60);
+  }
+}
+
+.group {
+  cursor: pointer;
+}
+
+.octoArm {
+  transform-origin: 130px 106px;
+}
+
+.octoArm_waving {
+  animation: octo-wave 0.3s ease-in 0s 3;
+}
+
+@keyframes octo-wave {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }

@@ -1,214 +1,126 @@
-import styles from "../assets/scss/components/mv.module.scss";
-import React, { useEffect, useRef, useCallback } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { ISourceOptions } from "@tsparticles/engine";
+import styles from "../assets/scss/components/mv.module.scss";
 
-function App() {
-  const div = useRef<HTMLDivElement>(null);
+const TITLES = ["HIRAI TAKAHIRO", "PORTFOLIO"];
+
+function Mv() {
+  const [particlesReady, setParticlesReady] = useState(false);
+  const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+
   useEffect(() => {
+    initParticlesEngine((engine) => loadSlim(engine)).then(() =>
+      setParticlesReady(true)
+    );
+  }, []);
 
-    // 文字のアニメーション
-    for (let i = 0; i < 2; i++) {
-      const titleElement = document.querySelector(".mv-title_" + i),
-        titleTexts = titleElement!.textContent!.split("");
+  useEffect(() => {
+    const timelines: gsap.core.Timeline[] = [];
 
-      titleElement!.textContent = "";
-      let outputTexts = "";
-      titleTexts.forEach(
-        (text) =>
-          (outputTexts += text === " " ? " " : "<span>" + text + "</span>")
-      );
-      titleElement!.innerHTML = outputTexts;
+    titleRefs.current.forEach((element, index) => {
+      if (!element) return;
 
-      const target = ".mv-title_" + i + " span";
-      document.querySelectorAll(target).forEach((el) => {
-        gsap.set(el, {
-          opacity: 0,
-          rotateX: "random(-90,90)",
-          rotateY: "random(-90,90)",
-          rotateZ: "random(-90,90)",
-          x: "random(-200,200)",
-          y: "random(-200,200)",
-          scale: 10,
-        });
+      element.innerHTML = TITLES[index]
+        .split("")
+        .map((char) => (char === " " ? " " : `<span>${char}</span>`))
+        .join("");
+
+      const spans = element.querySelectorAll("span");
+      gsap.set(spans, {
+        opacity: 0,
+        rotateX: "random(-90,90)",
+        rotateY: "random(-90,90)",
+        rotateZ: "random(-90,90)",
+        x: "random(-200,200)",
+        y: "random(-200,200)",
+        scale: 10,
       });
 
-      const tl = gsap.timeline();
-      tl.to(target, 3, {
+      const timeline = gsap.timeline();
+      timeline.to(spans, {
+        duration: 3,
         opacity: 1,
         rotateX: 0,
         rotateY: 0,
         rotateZ: 0,
         x: 0,
         y: 0,
-        ease: "power2.out",
         scale: 1,
-        stagger: {
-          amount: 1,
-          from: "center",
-        },
-      })
-    }
-  }, [div]);
+        ease: "power2.out",
+        stagger: { amount: 1, from: "center" },
+      });
+      timelines.push(timeline);
+    });
 
-  const particlesInit = useCallback(async (engine: any) => {
-    await loadFull(engine);
+    return () => timelines.forEach((timeline) => timeline.kill());
   }, []);
 
-  const particlesLoaded = useCallback(async (container: any) => {
-    // await console.log(container);
-  }, []);
-
-  const [mvHeight, setMvHeight] = React.useState("calc(100vh - 4.375rem)");
-
-  function mvHeightResponsive() {
-    if(window.innerWidth >= 768){
-      setMvHeight("calc(100vh - 4.375rem");
-    } else {
-      setMvHeight("100vh");
-    }
-  }
-  window.onresize = mvHeightResponsive;
-
-  const options: any = {
-    fullScreen: {
-      enable: true,
-      zIndex: 0,
-    },
-    particles: {
-      number: {
-        value: 40,
-        density: {
+  const options = useMemo<ISourceOptions>(
+    () => ({
+      fullScreen: { enable: true, zIndex: 0 },
+      detectRetina: true,
+      particles: {
+        number: { value: 40, density: { enable: true } },
+        color: {
+          value: ["#c311e7", "#b8e986", "#4dc9ff", "#ffd300", "#ff7e79"],
+        },
+        shape: { type: "circle" },
+        opacity: { value: 0.9 },
+        size: { value: { min: 2, max: 8 } },
+        links: {
           enable: true,
-          value_area: 800,
+          distance: 100,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1,
         },
-      },
-      color: {
-        value: ["#c311e7", "#b8e986", "#4dc9ff", "#ffd300", "#ff7e79"],
-      },
-      shape: {
-        type: "circle",
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-        polygon: {
-          nb_sides: 5,
-        },
-        image: {
-          src: "img/github.svg",
-          width: 100,
-          height: 100,
-        },
-      },
-      opacity: {
-        value: 0.9,
-        random: false,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.5,
-          sync: false,
-        },
-      },
-      size: {
-        value: 8,
-        random: true,
-        anim: {
-          enable: false,
-          speed: 30,
-          size_min: 0.1,
-          sync: false,
-        },
-      },
-      line_linked: {
-        enable: true,
-        distance: 100,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 2,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "bounce",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
+        move: {
           enable: true,
-          mode: "repulse",
-        },
-        onclick: {
-          enable: true,
-          mode: "push",
-        },
-        resize: true,
-      },
-      modes: {
-        grab: {
-          distance: 400,
-          line_linked: {
-            opacity: 1,
-          },
-        },
-        bubble: {
-          distance: 400,
-          size: 40,
-          duration: 2,
-          opacity: 8,
-          speed: 3,
-        },
-        repulse: {
-          distance: 125,
-          duration: 1,
-        },
-        push: {
-          particles_nb: 3,
-        },
-        remove: {
-          particles_nb: 2,
+          speed: 2,
+          direction: "none",
+          straight: false,
+          outModes: "bounce",
         },
       },
-    },
-    retina_detect: true,
-    style: {
-      width: "100%",
-      height: mvHeight,
-      position: "unset",
-    },
-  };
+      interactivity: {
+        detectsOn: "canvas",
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: { enable: true },
+        },
+        modes: {
+          repulse: { distance: 125, duration: 1 },
+          push: { quantity: 3 },
+        },
+      },
+    }),
+    []
+  );
 
   return (
-    <div className={styles['mv']}>
+    <div className={styles["mv"]}>
       <div id="particles-js">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          loaded={particlesLoaded}
-          options={options}
-        />
+        {particlesReady && <Particles id="tsparticles" options={options} />}
       </div>
-      <div className={styles['mv-title']}>
-        <h1 className='mv-title_0'>HIRAI TAKAHIRO</h1>
-        <h1 className='mv-title_1'>PORTFOLIO</h1>
+      <div className={styles["mv-title"]}>
+        {TITLES.map((_, index) => (
+          <h1
+            key={index}
+            ref={(element) => {
+              titleRefs.current[index] = element;
+            }}
+          />
+        ))}
       </div>
-      <AnchorLink href={"#about"}  offset={() => 0} className={styles['mv-scrolldown']}><span>Scroll</span></AnchorLink>
+      <a href="#about" className={styles["mv-scrolldown"]}>
+        <span>Scroll</span>
+      </a>
     </div>
   );
 }
 
-export default App;
+export default Mv;
